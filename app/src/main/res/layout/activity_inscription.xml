@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="0dp"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="0dp"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="groupe22.bettercallsam.Inscription"
+    android:id="@+id/Inscription"
+    android:nestedScrollingEnabled="false">
+
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="94dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/icon"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Inscription"
+        android:id="@+id/textInscription"
+        android:paddingTop="30dp"
+        android:textSize="24dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Nom :"
+        android:id="@+id/textView"
+        android:textColorHighlight="#555"
+        android:layout_alignBaseline="@+id/textNom"
+        android:layout_alignBottom="@+id/textNom"
+        android:layout_alignEnd="@+id/textView2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/textNom"
+        android:layout_below="@+id/imageView"
+        android:layout_alignStart="@+id/textInscription"
+        android:layout_marginTop="17dp"
+        android:editable="false"
+        android:autoText="false" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/textPrenom"
+        android:layout_below="@+id/textNom"
+        android:layout_alignStart="@+id/textNom" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Prénom :"
+        android:id="@+id/textView2"
+        android:textColor="#555"
+        android:layout_alignBaseline="@+id/textPrenom"
+        android:layout_alignBottom="@+id/textPrenom"
+        android:layout_toStartOf="@+id/textNom" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Mot de passe :"
+        android:id="@+id/textView3"
+        android:textColor="#555"
+        android:layout_alignBaseline="@+id/textMotDePasse"
+        android:layout_alignBottom="@+id/textMotDePasse"
+        android:layout_alignEnd="@+id/textView2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/textMotDePasse"
+        android:layout_below="@+id/textPrenom"
+        android:layout_toEndOf="@+id/textView3" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/textEMail"
+        android:layout_below="@+id/textMotDePasse"
+        android:layout_alignStart="@+id/textMotDePasse" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Adresse mail :"
+        android:id="@+id/textView4"
+        android:textColor="#555"
+        android:layout_alignBaseline="@+id/textEMail"
+        android:layout_alignBottom="@+id/textEMail"
+        android:layout_toStartOf="@+id/textEMail" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/textPhone"
+        android:layout_below="@+id/textEMail"
+        android:layout_alignStart="@+id/textEMail" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Téléphone :"
+        android:id="@+id/textView5"
+        android:layout_alignBaseline="@+id/textPhone"
+        android:layout_alignBottom="@+id/textPhone"
+        android:layout_toStartOf="@+id/textPhone"
+        android:textColor="#555"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="S&apos;incrire en tant que :"
+        android:id="@+id/textView6"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/textPhone"
+        android:layout_alignStart="@+id/textView2"
+        android:textColor="#555" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conducteur"
+        android:id="@+id/checkConducteur"
+        android:checked="false"
+        android:layout_below="@+id/textView6"
+        android:layout_toEndOf="@+id/textView6"
+        android:textColor="#555"
+        android:onClick="onClickConducteur"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Passager"
+        android:id="@+id/checkPassager"
+        android:layout_below="@+id/checkConducteur"
+        android:layout_alignStart="@+id/checkConducteur"
+        android:checked="false"
+        android:textColor="#555" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="J'accepte les conditions générales d'utilisation"
+        android:id="@+id/checkConditionsUtilisation"
+        android:textSize="14dp"
+        android:layout_below="@+id/checkPassager"
+        android:layout_centerHorizontal="true"
+        android:textColor="#555"
+        android:singleLine="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="S&apos;inscrire"
+        android:id="@+id/buttonInscription"
+        android:layout_below="@+id/checkConditionsUtilisation"
+        android:layout_centerHorizontal="true"
+        android:onClick="clickInscription" />
+
+</RelativeLayout>
