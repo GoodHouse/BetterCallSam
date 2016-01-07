@@ -32,7 +32,6 @@ public class Accueil extends AppCompatActivity {
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
                     for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-
                         Utilisateur user = postSnapshot.child(authData.getUid()).getValue(Utilisateur.class);
                         button.setText(user.getNom() + " - " + user.getPrenom());
                     }
