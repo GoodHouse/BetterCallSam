@@ -5,15 +5,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.AuthData;
 import com.firebase.client.DataSnapshot;
@@ -75,22 +78,21 @@ public class MainActivity extends AppCompatActivity {
         final EditText textMailCo = (EditText) findViewById(R.id.textMailCo);
         final EditText textMDPCo = (EditText) findViewById(R.id.textMDPCo);
         final String email, motDePasse;
-
+/*
         textMailCo.setText("adrq@email.fr");
         textMDPCo.setText("pass");
-
+*/
 
         final Firebase myFireBase = new Firebase("https://bettercallsam.firebaseio.com/");
-        final Snackbar snackbar = Snackbar.make(view, "", Snackbar.LENGTH_LONG);
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         email = textMailCo.getText().toString();
         motDePasse = textMDPCo.getText().toString();
 
         if (email.equals("") || motDePasse.equals("")) {
-            snackbar.setText("Merci de renseigner les deux champs");
-            snackbar.show();
+            Toast.makeText(getApplicationContext(), "Merci de renseigner les deux champs", Toast.LENGTH_LONG).show();
+
             return;
-        } /*else {*/
+        } else {
 
             myFireBase.authWithPassword(email, motDePasse, new Firebase.AuthResultHandler() {
                 @Override
@@ -118,31 +120,28 @@ public class MainActivity extends AppCompatActivity {
                             alertDialog.show();
                             break;
                         case FirebaseError.INVALID_PASSWORD:
-                            snackbar.setText("Mot de passe incorrect");
-                            snackbar.show();
+                            Toast.makeText(getApplicationContext(), "Mot de passe incorrect", Toast.LENGTH_LONG).show();
                             break;
                         default:
-                            snackbar.setText("Une erreur est survenue, veuillez réessayer");
-                            snackbar.show();
+                            Toast.makeText(getApplicationContext(), "Une erreur est survenue, veuillez réessayer", Toast.LENGTH_LONG).show();
                             break;
                     }
                 }
             });
-        //}
+            }
 
 
-    }
+        }
 
     public void clickMDPOublie(View view) {
         final EditText textMailCo = (EditText) findViewById(R.id.textMailCo);
         final String email;
 
-        final Snackbar snackbar = Snackbar.make(view, "", Snackbar.LENGTH_LONG);
         email = textMailCo.getText().toString();
 
         if (email.equals("")) {
-            snackbar.setText("Veuillez remplir la case email");
-            snackbar.show();
+            Toast.makeText(getApplicationContext(), "Veuillez remplir la case email", Toast.LENGTH_LONG).show();
+
             return;
         }
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
@@ -155,20 +154,18 @@ public class MainActivity extends AppCompatActivity {
                 myFireBase.resetPassword(email, new Firebase.ResultHandler() {
                     @Override
                     public void onSuccess() {
-                        snackbar.setText("Email envoyé");
-                        snackbar.show();
+                        Toast.makeText(getApplicationContext(), "Email envoyé", Toast.LENGTH_LONG).show();
+
                     }
 
                     @Override
                     public void onError(FirebaseError firebaseError) {
                         switch (firebaseError.getCode()) {
                             case FirebaseError.INVALID_EMAIL:
-                                snackbar.setText("Cet email est incorrect");
-                                snackbar.show();
+                                Toast.makeText(getApplicationContext(), "Email incorrect", Toast.LENGTH_LONG).show();
                                 break;
                             default:
-                                snackbar.setText("Une erreur est survenue, veuillez réessayer");
-                                snackbar.show();
+                                Toast.makeText(getApplicationContext(), "Une erreur est survenue, veuillez réessayer", Toast.LENGTH_LONG).show();
                                 break;
                         }
                     }

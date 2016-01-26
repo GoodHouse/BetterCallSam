@@ -21,7 +21,7 @@ public class Accueil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
-        final Button button = (Button) findViewById(R.id.buttonProposerTrajet);
+        final Button buttonProposerTrajet = (Button) findViewById(R.id.buttonProposerTrajet);
 
         final Firebase myFireBase = new Firebase("https://bettercallsam.firebaseio.com/");
         final Intent intentMain = new Intent(this, MainActivity.class);
@@ -33,7 +33,13 @@ public class Accueil extends AppCompatActivity {
                 public void onDataChange(DataSnapshot snapshot) {
                     for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                         Utilisateur user = postSnapshot.child(authData.getUid()).getValue(Utilisateur.class);
-                        button.setText(user.getNom() + " - " + user.getPrenom());
+                        if (!user.isEstConducteur()) {
+                            buttonProposerTrajet.setEnabled(false);
+                            buttonProposerTrajet.setVisibility(View.INVISIBLE);
+                        } else {
+                            buttonProposerTrajet.setEnabled(true);
+                            buttonProposerTrajet.setVisibility(View.VISIBLE);
+                        }
                     }
                 }
 
@@ -54,4 +60,10 @@ public class Accueil extends AppCompatActivity {
         final Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void clickButtonRechercherTrajet(View view){
+        Intent intent = new Intent(this, RechercherTrajet.class);
+        startActivity(intent);
+    }
+
 }

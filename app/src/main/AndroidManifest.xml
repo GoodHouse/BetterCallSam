@@ -25,8 +25,11 @@
             android:name=".Inscription"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".Accueil"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".Accueil"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name=".RechercherTrajet" >
         </activity>
     </application>
 

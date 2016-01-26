@@ -48,7 +48,8 @@
         android:layout_marginTop="23dp"
         android:layout_below="@+id/buttonProposerTrajet"
         android:layout_alignStart="@+id/buttonProposerTrajet"
-        android:background="@color/button_material_light" />
+        android:background="@color/button_material_light"
+        android:onClick="clickButtonRechercherTrajet"/>
 
     <Button
         style="@style/Widget.AppCompat.ButtonBar"

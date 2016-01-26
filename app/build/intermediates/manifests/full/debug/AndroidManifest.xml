@@ -35,6 +35,8 @@
             android:name="groupe22.bettercallsam.Accueil"
             android:screenOrientation="portrait" >
         </activity>
+        <activity android:name="groupe22.bettercallsam.RechercherTrajet" >
+        </activity>
     </application>
 
 </manifest>
