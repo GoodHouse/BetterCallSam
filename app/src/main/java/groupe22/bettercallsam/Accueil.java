@@ -20,19 +20,25 @@ public class Accueil extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //On charge l'interface de l'activité
         setContentView(R.layout.activity_accueil);
         final Button buttonProposerTrajet = (Button) findViewById(R.id.buttonProposerTrajet);
 
         final Firebase myFireBase = new Firebase("https://bettercallsam.firebaseio.com/");
         final Intent intentMain = new Intent(this, MainActivity.class);
 
+        //On vérifie que l'utilisateur est bien connecté
         final AuthData authData = myFireBase.getAuth();
         if(authData != null){
             myFireBase.addValueEventListener(new ValueEventListener() {
+                //S'il est connecté, on récupère ses informations
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
                     for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                         Utilisateur user = postSnapshot.child(authData.getUid()).getValue(Utilisateur.class);
+
+                        //Selon si l'utilisateur est conducteur ou non, on cache le bouton de proposition de trajets
                         if (!user.isEstConducteur()) {
                             buttonProposerTrajet.setEnabled(false);
                             buttonProposerTrajet.setVisibility(View.INVISIBLE);
@@ -49,14 +55,17 @@ public class Accueil extends AppCompatActivity {
             });
         }
         else
+        //S'il n'est pas connecté, on le redirige sur l'activité principale
             startActivity(intentMain);
-
-
     }
 
     public void clickButtonDeconnexion(View view){
         Firebase myFireBase = new Firebase("https://bettercallsam.firebaseio.com/");
+
+        //On déconnecte l'utilisateur de la base
         myFireBase.unauth();
+
+        //On le redirige vers l'activité principale
         final Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

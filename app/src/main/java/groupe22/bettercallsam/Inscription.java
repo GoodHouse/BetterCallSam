@@ -24,10 +24,9 @@ public class Inscription extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
         Firebase.setAndroidContext(this);
-
-        Intent intent = getIntent();
     }
 
+    //Un conducteur EST UN PASSAGER mais un passager n'est pas forcément conducteur
     public void onClickConducteur(View view) {
         final CheckBox checkPassager = (CheckBox) findViewById(R.id.checkPassager);
         final CheckBox checkConducteur = (CheckBox) findViewById(R.id.checkConducteur);
@@ -40,8 +39,7 @@ public class Inscription extends AppCompatActivity {
     }
 
     public void clickInscription(View view) {
-        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-
+        //On récupère tous les éléments utiles de l'interface pour pouvoir récupérer les textes entrés
         final EditText textEMail = (EditText) findViewById(R.id.textEMail);
         final EditText textMotDePasse = (EditText) findViewById(R.id.textMotDePasse);
         final EditText textNom = (EditText) findViewById(R.id.textNom);
@@ -49,61 +47,75 @@ public class Inscription extends AppCompatActivity {
         final EditText textPhone = (EditText) findViewById(R.id.textPhone);
         final CheckBox checkConducteur = (CheckBox) findViewById(R.id.checkConducteur);
 
+        //On prépare la redirection vers l'activité principale
         final Intent intent = new Intent(this, MainActivity.class);
 
-        final String email, motDePasse;
-
         if(
+                //Si l'un des champs est vide, on demande à l'utilisateur de tous les remplir
                 textEMail.getText().toString().equals("") ||
                 textMotDePasse.getText().toString().equals("") ||
                 textNom.getText().toString().equals("") ||
                 textPrenom.getText().toString().equals("") ||
                 textPhone.getText().toString().equals("")
           ){
+            //Un Toast est un petit rectangle aux bords arrondis gris avec un texte à l'intérieur
             Toast.makeText(getApplicationContext(), "Merci de renseigner tous les champs", Toast.LENGTH_LONG).show();
             return;
         }
 
-        email = textEMail.getText().toString();
-        motDePasse = textMotDePasse.getText().toString();
-
-
+        //Connexion à la base de données
         final Firebase myFireBase = new Firebase("https://bettercallsam.firebaseio.com/");
 
+        //On crée un nouvel utilisateur dans la base
         myFireBase.createUser(textEMail.getText().toString(), textMotDePasse.getText().toString(), new Firebase.ResultHandler() {
             @Override
+            //Si le nouvel utilisateur a bien été crée
             public void onSuccess() {
-                myFireBase.authWithPassword(email, motDePasse, new Firebase.AuthResultHandler() {
+                //On se connecte grâce à son compte
+                myFireBase.authWithPassword(textEMail.getText().toString(), textMotDePasse.getText().toString(), new Firebase.AuthResultHandler() {
                     @Override
+                    //Si la connexion a fonctionné
                     public void onAuthenticated(AuthData authData) {
-                        String nom = textNom.getText().toString();
-                        String prenom = textPrenom.getText().toString();
-                        int numero = Integer.parseInt(textPhone.getText().toString());
-                        boolean estConducteur = checkConducteur.isChecked();
+                        //On se place où il faut dans la base de données
                         Firebase user = myFireBase.child("users").child(authData.getUid());
-                        Utilisateur utilisateur = new Utilisateur(nom, prenom, numero, estConducteur);
+
+                        //On crée un nouvel utilisateur, puis on complete ses attributs
+                        Utilisateur utilisateur = new Utilisateur();
+                        utilisateur.setNom(textNom.getText().toString());
+                        utilisateur.setPrenom(textPrenom.getText().toString());
+                        utilisateur.setNumero(Integer.parseInt(textPhone.getText().toString()));
+                        utilisateur.setEstConducteur(checkConducteur.isChecked());
+
+                        //On envoie les données du nouvel utilisateur dans la base de données
                         user.setValue(utilisateur);
                     }
 
+                    //S'il y a eu une erreur durant l'authentification
                     @Override
                     public void onAuthenticationError(FirebaseError firebaseError) {
                         Toast.makeText(getApplicationContext(), "Une erreur est survenue, veuillez réessayer", Toast.LENGTH_LONG).show();
                     }
                 });
-                alertDialog.setTitle("Inscription");
-                alertDialog.setMessage("Vous avez bien été inscrit");
-                alertDialog.setIcon(R.drawable.icon);
-                alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        startActivity(intent);
-                    }
-                });
-                alertDialog.show();
+                //On signale à l'utilisateur que son inscription est un succès
+                Toast.makeText(getApplicationContext(), "Vous avez bien été inscrit", Toast.LENGTH_LONG).show();
+                //On redirige l'utilisateur vers l'activité principale
+                startActivity(intent);
             }
 
             @Override
+            //Si l'utilisateur n'a pas pu être crée
             public void onError(FirebaseError firebaseError) {
-                Toast.makeText(getApplicationContext(), "Une erreur est survenue, veuillez réessayer", Toast.LENGTH_LONG).show();
+                switch(firebaseError.getCode()) {
+                    case FirebaseError.EMAIL_TAKEN:
+                        Toast.makeText(getApplicationContext(), "Cet email est déjà utilisé", Toast.LENGTH_LONG).show();
+                        break;
+                    case FirebaseError.INVALID_PASSWORD:
+                        Toast.makeText(getApplicationContext(), "Ce mot de passe est incorrect", Toast.LENGTH_LONG).show();
+                        break;
+                    default:
+                        Toast.makeText(getApplicationContext(), "Une erreur est survenue, veuillez réessayer", Toast.LENGTH_LONG).show();
+                        break;
+                }
             }
         });
     }
