@@ -31,6 +31,10 @@
         </activity>
         <activity android:name=".RechercherTrajet" >
         </activity>
+        <activity android:name=".ProposerTrajet" >
+        </activity>
+        <activity android:name=".AffichageTrajets" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,74 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="0dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="false"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="groupe22.bettercallsam.Accueil"
-    android:focusable="false">
+    tools:context="groupe22.bettercallsam.Accueil">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="90dp"
         android:layout_height="94dp"
-        android:id="@+id/imageView"
-        android:src="@drawable/icon"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:src="@drawable/icon" />
 
     <TextView
+        android:id="@+id/textAccueil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Accueil"
-        android:id="@+id/textAccueil"
-        android:paddingTop="30dp"
-        android:textSize="24dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true" />
+        android:paddingTop="30dp"
+        android:text="Accueil"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="24dp" />
 
     <Button
+        android:id="@+id/buttonProposerTrajet"
+        style="@style/Widget.AppCompat.ButtonBar"
         android:layout_width="250dp"
         android:layout_height="75dp"
-        android:text="Proposer un trajet"
-        android:id="@+id/buttonProposerTrajet"
-        android:layout_marginTop="23dp"
-        style="@style/Widget.AppCompat.ButtonBar"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:background="@color/button_material_light"
-        />
-
-    <Button
-        style="@style/Widget.AppCompat.ButtonBar"
-        android:layout_width="250dp"
-        android:layout_height="75dp"
-        android:text="Rechercher un trajet"
-        android:id="@+id/buttonRechercherTrajet"
         android:layout_marginTop="23dp"
-        android:layout_below="@+id/buttonProposerTrajet"
-        android:layout_alignStart="@+id/buttonProposerTrajet"
         android:background="@color/button_material_light"
-        android:onClick="clickButtonRechercherTrajet"/>
+        android:onClick="clickButtonProposerTrajet"
+        android:text="Proposer un trajet" />
 
     <Button
+        android:id="@+id/buttonRechercherTrajet"
         style="@style/Widget.AppCompat.ButtonBar"
         android:layout_width="250dp"
         android:layout_height="75dp"
-        android:text="Mes trajets"
+        android:layout_alignStart="@+id/buttonProposerTrajet"
+        android:layout_below="@+id/buttonProposerTrajet"
+        android:layout_marginTop="23dp"
+        android:background="@color/button_material_light"
+        android:onClick="clickButtonRechercherTrajet"
+        android:text="Rechercher un trajet" />
+
+    <Button
         android:id="@+id/buttonMesTrajets"
-        android:layout_marginTop="24dp"
+        style="@style/Widget.AppCompat.ButtonBar"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
         android:layout_below="@+id/buttonRechercherTrajet"
         android:layout_centerHorizontal="true"
-        android:background="@color/button_material_light" />
+        android:layout_marginTop="24dp"
+        android:background="@color/button_material_light"
+        android:text="Mes trajets" />
 
     <Button
+        android:id="@+id/buttonDeconnexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Se déconnecter"
-        android:id="@+id/buttonDeconnexion"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="clickButtonDeconnexion"/>
+        android:onClick="clickButtonDeconnexion"
+        android:text="Se déconnecter" />
 
 </RelativeLayout>

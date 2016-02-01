@@ -1,7 +1,5 @@
 package groupe22.bettercallsam;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,9 +11,6 @@ import android.widget.Toast;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
-
-import java.util.Hashtable;
-import java.util.Map;
 
 public class Inscription extends AppCompatActivity {
 
@@ -50,14 +45,14 @@ public class Inscription extends AppCompatActivity {
         //On prépare la redirection vers l'activité principale
         final Intent intent = new Intent(this, MainActivity.class);
 
-        if(
-                //Si l'un des champs est vide, on demande à l'utilisateur de tous les remplir
+        if (
+            //Si l'un des champs est vide, on demande à l'utilisateur de tous les remplir
                 textEMail.getText().toString().equals("") ||
-                textMotDePasse.getText().toString().equals("") ||
-                textNom.getText().toString().equals("") ||
-                textPrenom.getText().toString().equals("") ||
-                textPhone.getText().toString().equals("")
-          ){
+                        textMotDePasse.getText().toString().equals("") ||
+                        textNom.getText().toString().equals("") ||
+                        textPrenom.getText().toString().equals("") ||
+                        textPhone.getText().toString().equals("")
+                ) {
             //Un Toast est un petit rectangle aux bords arrondis gris avec un texte à l'intérieur
             Toast.makeText(getApplicationContext(), "Merci de renseigner tous les champs", Toast.LENGTH_LONG).show();
             return;
@@ -83,7 +78,7 @@ public class Inscription extends AppCompatActivity {
                         Utilisateur utilisateur = new Utilisateur();
                         utilisateur.setNom(textNom.getText().toString());
                         utilisateur.setPrenom(textPrenom.getText().toString());
-                        utilisateur.setNumero(Integer.parseInt(textPhone.getText().toString()));
+                        utilisateur.setNumero(textPhone.getText().toString());
                         utilisateur.setEstConducteur(checkConducteur.isChecked());
 
                         //On envoie les données du nouvel utilisateur dans la base de données
@@ -105,7 +100,7 @@ public class Inscription extends AppCompatActivity {
             @Override
             //Si l'utilisateur n'a pas pu être crée
             public void onError(FirebaseError firebaseError) {
-                switch(firebaseError.getCode()) {
+                switch (firebaseError.getCode()) {
                     case FirebaseError.EMAIL_TAKEN:
                         Toast.makeText(getApplicationContext(), "Cet email est déjà utilisé", Toast.LENGTH_LONG).show();
                         break;

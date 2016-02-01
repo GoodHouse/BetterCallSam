@@ -37,6 +37,10 @@
         </activity>
         <activity android:name="groupe22.bettercallsam.RechercherTrajet" >
         </activity>
+        <activity android:name="groupe22.bettercallsam.ProposerTrajet" >
+        </activity>
+        <activity android:name="groupe22.bettercallsam.AffichageTrajets" >
+        </activity>
     </application>
 
 </manifest>
