@@ -1,18 +1,26 @@
 package groupe22.bettercallsam;
 
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
+import groupe22.bettercallsam.TimePickerFragment;
+
 
 public class ProposerTrajet extends AppCompatActivity {
 
@@ -67,4 +75,15 @@ public class ProposerTrajet extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void clickEditTextDate(View view){
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getFragmentManager(), "Date");
+    }
+
+    public void clickEditTextTime(View view){
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getFragmentManager(), "Heure");
+    }
 }
+

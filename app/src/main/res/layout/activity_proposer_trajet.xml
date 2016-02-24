@@ -43,7 +43,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
-        android:layout_marginTop="12dp"
         android:layout_toEndOf="@+id/imageView"
         android:ems="10"
         android:hint="Ville"
@@ -57,8 +56,7 @@
         android:hint="Adresse"
         android:inputType="textPostalAddress"
         android:layout_below="@+id/textView10"
-        android:layout_alignStart="@+id/editTextVilleDepart"
-        android:layout_marginTop="4dp" />
+        android:layout_alignStart="@+id/editTextVilleDepart"/>
 
     <TextView
         android:id="@+id/textView11"
@@ -100,26 +98,6 @@
         android:text="Jour :"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView13"
-        android:layout_below="@+id/textView13"
-        android:layout_marginTop="30dp"
-        android:text="Heure :"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_below="@+id/textView14"
-        android:layout_marginTop="27dp"
-        android:text="Nombre de places à proposer :"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
     <Button
         android:id="@+id/buttonProposer"
         android:layout_width="wrap_content"
@@ -129,5 +107,35 @@
         android:layout_marginBottom="18dp"
         android:text="Proposer"
         android:onClick="clickButtonProposer"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editTextDate"
+        android:clickable="true"
+        android:onClick="clickEditTextDate"
+        android:layout_below="@+id/editTextAdresseArrivee"
+        android:layout_alignStart="@+id/editTextAdresseArrivee" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Heure :"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/editTextDate"
+        android:layout_alignEnd="@+id/textView10" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_below="@+id/editTextDate"
+        android:layout_toEndOf="@+id/textView16" />
 
 </RelativeLayout>
