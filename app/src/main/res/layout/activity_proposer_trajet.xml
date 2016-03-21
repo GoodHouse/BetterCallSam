@@ -114,14 +114,11 @@
         android:id="@+id/editTextDate"
         android:clickable="true"
         android:editable="false"
+        android:focusable="false"
         android:onClick="clickEditTextDate"
         android:layout_below="@+id/editTextAdresseArrivee"
         android:layout_alignStart="@+id/editTextAdresseArrivee"
-<<<<<<< HEAD
-        android:layout_alignEnd="@+id/editTextAdresseArrivee" />
-=======
-        android:editable="false" />
->>>>>>> 8dc12ef1bbcab1889bad30b4c94aa47223d758af
+        android:layout_alignEnd="@+id/editTextAdresseArrivee"/>
 
     <TextView
         android:id="@+id/textView16"
@@ -137,12 +134,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:editable="false"
+        android:focusable="false"
         android:ems="10"
         android:id="@+id/editTextTemps"
         android:layout_below="@+id/editTextDate"
-        android:layout_toEndOf="@+id/textView16"
-<<<<<<< HEAD
-        />
+        android:layout_toEndOf="@+id/textView16"/>
 
     <TextView
         android:id="@+id/textView17"
@@ -153,9 +149,5 @@
         android:layout_below="@+id/editTextTemps"
         android:layout_toStartOf="@+id/buttonProposer"
         android:layout_marginTop="39dp" />
-
-=======
-        android:editable="false" />
->>>>>>> 8dc12ef1bbcab1889bad30b4c94aa47223d758af
 
 </RelativeLayout>
