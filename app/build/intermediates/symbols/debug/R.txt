@@ -607,10 +607,10 @@ int id design_menu_item_action_area_stub 0x7f0c009f
 int id design_menu_item_text 0x7f0c009e
 int id design_navigation_view 0x7f0c009d
 int id disableHome 0x7f0c000e
-int id editText 0x7f0c008d
 int id editTextAdresseArrivee 0x7f0c0088
 int id editTextAdresseDepart 0x7f0c0085
 int id editTextDate 0x7f0c008b
+int id editTextTemps 0x7f0c008d
 int id editTextVilleArrivee 0x7f0c0087
 int id editTextVilleDepart 0x7f0c0083
 int id edit_query 0x7f0c005c

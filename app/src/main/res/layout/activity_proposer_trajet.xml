@@ -135,7 +135,7 @@
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/editTextTemps"
         android:layout_below="@+id/editTextDate"
         android:layout_toEndOf="@+id/textView16"
         android:editable="false" />

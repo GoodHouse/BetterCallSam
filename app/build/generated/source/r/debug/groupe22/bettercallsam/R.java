@@ -2253,10 +2253,10 @@ containing a value of this type.
         public static final int design_menu_item_text=0x7f0c009e;
         public static final int design_navigation_view=0x7f0c009d;
         public static final int disableHome=0x7f0c000e;
-        public static final int editText=0x7f0c008d;
         public static final int editTextAdresseArrivee=0x7f0c0088;
         public static final int editTextAdresseDepart=0x7f0c0085;
         public static final int editTextDate=0x7f0c008b;
+        public static final int editTextTemps=0x7f0c008d;
         public static final int editTextVilleArrivee=0x7f0c0087;
         public static final int editTextVilleDepart=0x7f0c0083;
         public static final int edit_query=0x7f0c005c;

@@ -80,15 +80,15 @@ public class ProposerTrajet extends AppCompatActivity
             return;
         }
 
-        Trajet trajet = new Trajet(
-                textVilleDepart.getText().toString(),
+        Trajet trajet = new Trajet(textVilleDepart.getText().toString(),
                 textAdresseDepart.getText().toString(),
                 textVilleArrivee.getText().toString(),
                 textAdresseArrivee.getText().toString(),
                 textDate.getText().toString(),
                 textTemps.getText().toString(),
-                rdm.nextInt(5),
-                authData.getUid());
+                3,
+                authData.getUid().toString()
+                );
 
         Firebase trip = myFireBase.child("trips").child(Integer.toString(rdm.nextInt(Integer.MAX_VALUE)));
 
