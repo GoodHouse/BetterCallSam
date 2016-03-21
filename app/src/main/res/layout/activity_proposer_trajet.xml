@@ -117,7 +117,8 @@
         android:clickable="true"
         android:onClick="clickEditTextDate"
         android:layout_below="@+id/editTextAdresseArrivee"
-        android:layout_alignStart="@+id/editTextAdresseArrivee" />
+        android:layout_alignStart="@+id/editTextAdresseArrivee"
+        android:editable="false" />
 
     <TextView
         android:id="@+id/textView16"
@@ -136,6 +137,7 @@
         android:ems="10"
         android:id="@+id/editText"
         android:layout_below="@+id/editTextDate"
-        android:layout_toEndOf="@+id/textView16" />
+        android:layout_toEndOf="@+id/textView16"
+        android:editable="false" />
 
 </RelativeLayout>
