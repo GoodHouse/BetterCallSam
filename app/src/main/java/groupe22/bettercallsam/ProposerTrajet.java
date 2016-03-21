@@ -87,10 +87,8 @@ public class ProposerTrajet extends AppCompatActivity
                 textAdresseArrivee.getText().toString(),
                 textDate.getText().toString(),
                 textTemps.getText().toString(),
-               // new Date(new Date().getYear(), new Date().getMonth(), new Date().getDay()).toString(),
-                rdm.nextInt(5)
-
-        );
+                rdm.nextInt(5),
+                authData.getUid());
 
         Firebase trip = myFireBase.child("trips").child(Integer.toString(rdm.nextInt(Integer.MAX_VALUE)));
 
@@ -174,4 +172,3 @@ public class ProposerTrajet extends AppCompatActivity
     }
 
 }
-

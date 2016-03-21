@@ -14,15 +14,15 @@ public class Trajet {
     private String adresseArrivee;
     private String dateDepart;
     private int nombrePlaceDisponibles;
-    private Utilisateur conducteur;
-    private Map<Utilisateur, String> passagers;
+    private String conducteur;
+    private Map<String, String> passagers;
 
 
     public Trajet() {
 
     }
 
-    public Trajet(String villeDepart, String adresseDepart, String villeArrivee, String adresseArrivee, String dateDepart, int nombrePlaceDisponibles) {
+    public Trajet(String villeDepart, String adresseDepart, String villeArrivee, String adresseArrivee, String dateDepart, int nombrePlaceDisponibles, String conducteur) {
         this.villeDepart = villeDepart;
         this.adresseDepart = adresseDepart;
         this.villeArrivee = villeArrivee;
@@ -30,6 +30,7 @@ public class Trajet {
         this.dateDepart = dateDepart;
         this.nombrePlaceDisponibles = nombrePlaceDisponibles;
         this.passagers = new HashMap<>();
+        this.conducteur = conducteur;
     }
 
     public String getAdresseDepart() {
@@ -80,8 +81,12 @@ public class Trajet {
         this.villeDepart = villeDepart;
     }
 
-    public void ajouterPassager(Utilisateur passager, int nombreDePlaces){
+    public void ajouterPassager(String passager, int nombreDePlaces){
         this.passagers.put(passager, Integer.toString(nombreDePlaces));
         this.nombrePlaceDisponibles -= nombreDePlaces;
+    }
+
+    public String getConducteur(){
+        return this.conducteur;
     }
 }
