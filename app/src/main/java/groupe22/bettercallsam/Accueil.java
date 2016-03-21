@@ -88,4 +88,10 @@ public class Accueil extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void clickButtonMesTrajets(View view)
+    {
+        Intent intent = new Intent(this, AffichageTrajets.class);
+        startActivity(intent);
+    }
+
 }

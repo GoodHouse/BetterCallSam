@@ -80,21 +80,13 @@ public class ProposerTrajet extends AppCompatActivity
             return;
         }
 
-        Trajet trajet = new Trajet(
-                textVilleDepart.getText().toString(),
-                textAdresseDepart.getText().toString(),
-                textVilleArrivee.getText().toString(),
-                textAdresseArrivee.getText().toString(),
-                textDate.getText().toString(),
-                textTemps.getText().toString(),
-                rdm.nextInt(5),
-                authData.getUid());
+
 
         Firebase trip = myFireBase.child("trips").child(Integer.toString(rdm.nextInt(Integer.MAX_VALUE)));
 
 
         //On envoie les données du nouveau trajet dans la base de données
-        trip.setValue(trajet);
+        //trip.setValue(trajet);
 
         Toast.makeText(getApplicationContext(), "Votre trajet a bien été proposé", Toast.LENGTH_LONG).show();
 
