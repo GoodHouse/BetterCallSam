@@ -13,6 +13,7 @@ public class Trajet {
     private String villeArrivee;
     private String adresseArrivee;
     private String dateDepart;
+    private String heureDepart;
     private int nombrePlaceDisponibles;
     private String conducteur;
     private Map<String, String> passagers;
@@ -22,12 +23,13 @@ public class Trajet {
 
     }
 
-    public Trajet(String villeDepart, String adresseDepart, String villeArrivee, String adresseArrivee, String dateDepart, int nombrePlaceDisponibles, String conducteur) {
+    public Trajet(String villeDepart, String adresseDepart, String villeArrivee, String adresseArrivee, String dateDepart, String heureDepart, int nombrePlaceDisponibles, String conducteur) {
         this.villeDepart = villeDepart;
         this.adresseDepart = adresseDepart;
         this.villeArrivee = villeArrivee;
         this.adresseArrivee = adresseArrivee;
         this.dateDepart = dateDepart;
+        this.heureDepart = heureDepart;
         this.nombrePlaceDisponibles = nombrePlaceDisponibles;
         this.passagers = new HashMap<>();
         this.conducteur = conducteur;

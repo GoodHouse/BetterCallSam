@@ -2,88 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/home/castazer/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.2.2/3c8f6018eaa72d43b261181e801e6f8676c16ef6/jackson-databind-2.2.2.jar"
+        jar="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/exploded-aar/com.firebaseui/firebase-ui/0.3.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
-        <dex dex="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/pre-dexed/debug/jackson-databind-2.2.2-831ba58effa3424c2ce0821ae015f71743af00bd.jar" />
-    </item>
-    <item
-        jar="/home/castazer/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.11/d37cb67277928cf59344b4196af8d9cee1f1a27c/tubesock-0.0.11.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="d37cb67277928cf59344b4196af8d9cee1f1a27c">
-        <dex dex="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/pre-dexed/debug/tubesock-0.0.11-23665509dd3142a7745336f6b1c02a5c4ba3c037.jar" />
-    </item>
-    <item
-        jar="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-c48e6ee73e05b9514497a5a8c0d362a50435e975.jar" />
-    </item>
-    <item
-        jar="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
-        <dex dex="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/pre-dexed/debug/classes-abfcc484be0e5e6d3935d832babbdb5b73d6d8e8.jar" />
-    </item>
-    <item
-        jar="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/pre-dexed/debug/classes-2a9833f3b4d308e84db920b2dcd53365e702f0fc.jar" />
-    </item>
-    <item
-        jar="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/pre-dexed/debug/classes-ad579c9454d1f5b1cdd0df73415e5a2fe7a5ab0a.jar" />
-    </item>
-    <item
-        jar="/home/castazer/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.3.1/be29b24233711c419ce935aa0a1b12ebc49d1c9a/firebase-client-android-2.3.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="be29b24233711c419ce935aa0a1b12ebc49d1c9a">
-        <dex dex="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/pre-dexed/debug/firebase-client-android-2.3.1-8edd7f521fa664f19f592286fbc4742d7f89b5b8.jar" />
-    </item>
-    <item
-        jar="/home/castazer/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1-278b31f8410bc19649b05c23982466c92f8f6d04.jar" />
-    </item>
-    <item
-        jar="/home/castazer/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
-        <dex dex="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.2-d0f90ac664bb69ec1fca171ad16a950a0df02da3.jar" />
-    </item>
-    <item
-        jar="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
-        <dex dex="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/pre-dexed/debug/classes-700f80b7eb9b2babe90589fc6b4d29b56a58daef.jar" />
-    </item>
-    <item
-        jar="/home/castazer/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.2.2/285cb9c666f0f0f3dd8a1be04e1f457eb7b15113/jackson-annotations-2.2.2.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
-        <dex dex="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.2.2-a90d4e1eb1b3715fcf224a0c50d1c4844711d604.jar" />
-    </item>
-    <item
-        jar="/home/castazer/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.3.1/4d53b7d6983247af02b8fe7e4228fff555a5e828/firebase-client-jvm-2.3.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="4d53b7d6983247af02b8fe7e4228fff555a5e828">
-        <dex dex="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/pre-dexed/debug/firebase-client-jvm-2.3.1-4b48aa724a7317f84c8ea54deab90ed711742e8f.jar" />
+        sha1="5f34a8aeb0eaaa2d69752d56102a8c808117058e">
+        <dex dex="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/pre-dexed/debug/classes-4a8e24d20ef73fcfb846ea98b0907cd9f805492a.jar" />
     </item>
 
 </items>

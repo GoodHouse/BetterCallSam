@@ -311,6 +311,10 @@
     <eat-comment/>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
+    <!-- From: file:/home/castazer/testBetter/BetterCallSam/app/build/intermediates/exploded-aar/com.firebaseui/firebase-ui/0.3.1/res/values/values.xml -->
+    <eat-comment/>
+    <string name="firebaseUrl"/>
+    <string name="gcm_defaultSenderId" translatable="false"/>
     <!-- From: file:/home/castazer/testBetter/BetterCallSam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
@@ -1286,6 +1290,12 @@
         <item name="tabBackground">?attr/selectableItemBackground</item>
         <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
         <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+    </style>
+    <!-- From: file:/home/castazer/testBetter/BetterCallSam/app/build/intermediates/exploded-aar/com.firebaseui/firebase-ui/0.3.1/res/values/values.xml -->
+    <eat-comment/>
+    <style name="FirebaseEditTextTheme">
+        <item name="colorControlActivated">#1194F6</item>
+        <!-- colorControlActivated & colorControlHighlight use the colorAccent color by default -->
     </style>
     <!-- From: file:/home/castazer/testBetter/BetterCallSam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
