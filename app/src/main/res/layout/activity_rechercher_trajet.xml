@@ -7,7 +7,8 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context="groupe22.bettercallsam.RechercherTrajet">
+    tools:context="groupe22.bettercallsam.RechercherTrajet"
+    android:clickable="false">
 
     <ImageView
         android:id="@+id/imageView"
@@ -37,7 +38,8 @@
         android:layout_alignBottom="@+id/editTextVilleDepart"
         android:layout_toStartOf="@+id/editTextVilleDepart"
         android:text="Départ :"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignStart="@id/textView10" />
 
     <EditText
         android:id="@+id/editTextVilleDepart"
@@ -94,31 +96,11 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextAdresseArrivee"
-        android:layout_marginTop="19dp"
-        android:layout_toStartOf="@+id/editTextAdresseArrivee"
+        android:layout_marginTop="21dp"
         android:text="Jour :"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView13"
-        android:layout_below="@+id/textView13"
-        android:layout_marginTop="30dp"
-        android:text="Heure :"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_below="@+id/textView14"
-        android:layout_marginTop="27dp"
-        android:text="Nombre de places à réserver :"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/editTextAdresseArrivee"
+        android:layout_alignStart="@+id/textView11" />
 
     <Button
         android:id="@+id/buttonRechercher"
@@ -129,5 +111,43 @@
         android:layout_marginBottom="18dp"
         android:text="Rechercher"
         android:onClick="clickButtonRechercher"/>
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:editable="false"
+        android:layout_below="@+id/editTextAdresseArrivee"
+        android:layout_alignStart="@+id/editTextAdresseArrivee" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Heure :"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/editTextDate"
+        android:layout_alignStart="@+id/textView13" />
+
+    <EditText
+        android:id="@+id/editTextTemps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:editable="false"
+        android:layout_alignBottom="@+id/textView14"
+        android:layout_alignStart="@+id/editTextDate" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre de places :"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/textView14"
+        android:layout_alignStart="@+id/textView10"
+        android:layout_marginTop="24dp" />
 
 </RelativeLayout>
