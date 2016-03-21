@@ -59,28 +59,28 @@
         android:ems="10"
         android:hint="Adresse"
         android:inputType="textPostalAddress"
-        android:layout_below="@+id/textView10"
+        android:layout_below="@+id/editTextVilleDepart"
         android:layout_alignStart="@+id/editTextVilleDepart" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextAdresseDepart"
-        android:layout_marginTop="18dp"
-        android:layout_toStartOf="@+id/editTextAdresseDepart"
+        android:layout_marginTop="11dp"
         android:text="Arrivée :"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/editTextAdresseDepart"
+        android:layout_toStartOf="@+id/editTextVilleArrivee" />
 
     <EditText
         android:id="@+id/editTextVilleArrivee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextAdresseDepart"
-        android:layout_toEndOf="@+id/textView11"
         android:ems="10"
         android:hint="Ville"
-        android:inputType="textPostalAddress" />
+        android:inputType="textPostalAddress"
+        android:layout_below="@+id/editTextAdresseDepart"
+        android:layout_alignStart="@+id/editTextAdresseDepart" />
 
     <EditText
         android:id="@+id/editTextAdresseArrivee"
@@ -89,7 +89,7 @@
         android:ems="10"
         android:hint="Adresse"
         android:inputType="textPostalAddress"
-        android:layout_below="@+id/textView11"
+        android:layout_below="@+id/editTextVilleArrivee"
         android:layout_alignStart="@+id/editTextVilleArrivee" />
 
     <TextView
@@ -118,18 +118,19 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:editable="false"
-        android:layout_below="@+id/editTextAdresseArrivee"
+        android:focusable="false"
+        android:layout_alignBottom="@+id/textView13"
         android:layout_alignStart="@+id/editTextAdresseArrivee" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:text="Heure :"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_below="@+id/editTextDate"
-        android:layout_alignStart="@+id/textView13" />
+        android:layout_alignBaseline="@+id/editTextTemps"
+        android:layout_alignBottom="@+id/editTextTemps"
+        android:layout_alignStart="@+id/textView15" />
 
     <EditText
         android:id="@+id/editTextTemps"
@@ -137,7 +138,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:editable="false"
-        android:layout_alignBottom="@+id/textView14"
+        android:focusable="false"
+        android:layout_below="@+id/editTextDate"
         android:layout_alignStart="@+id/editTextDate" />
 
     <TextView
@@ -146,8 +148,20 @@
         android:layout_height="wrap_content"
         android:text="Nombre de places :"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_below="@+id/textView14"
-        android:layout_alignStart="@+id/textView10"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/editTextTemps"
+        android:layout_alignStart="@+id/textView10" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editTextNbPlaces"
+        android:editable="false"
+        android:focusable="false"
+        android:layout_below="@+id/editTextTemps"
+        android:layout_alignEnd="@+id/editTextTemps"
+        android:layout_toEndOf="@+id/textView15" />
 
 </RelativeLayout>

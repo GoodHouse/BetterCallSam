@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.AuthData;
 import com.firebase.client.DataSnapshot;
@@ -25,12 +26,12 @@ public class AffichageTrajets extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_affichage_trajets);
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, message);
+        Intent intent = getIntent();
+        final String ville = intent.getStringExtra("ville");
 
 
         final ListView listView = (ListView) findViewById(R.id.listView);
 
-        listView.setAdapter(adapter);
 
         final Firebase myFireBase = new Firebase("https://bettercallsam.firebaseio.com/");
 
@@ -44,7 +45,13 @@ public class AffichageTrajets extends AppCompatActivity {
                     for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                         postSnapshot.getValue();
                         Trajet trajet = postSnapshot.getValue(Trajet.class);
-                        adapter.notifyDataSetChanged();
+                        String villeDep = trajet.getVilleDepart();
+                        if (ville.equals(villeDep)) {
+                            String villeArr = trajet.getVilleArrivee();
+                            String adDep = trajet.getAdresseDepart();
+                            String adArr = trajet.getAdresseArrivee();
+                            Toast.makeText(getApplicationContext(), villeDep + "\n" + villeArr + "\n" + adDep + "\n" + adArr, Toast.LENGTH_LONG).show();
+                        }
                     }
                 }
 

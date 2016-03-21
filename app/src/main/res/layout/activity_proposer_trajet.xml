@@ -82,11 +82,11 @@
         android:id="@+id/editTextAdresseArrivee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView11"
-        android:layout_toEndOf="@+id/textView11"
         android:ems="10"
         android:hint="Adresse"
-        android:inputType="textPostalAddress" />
+        android:inputType="textPostalAddress"
+        android:layout_below="@+id/textView11"
+        android:layout_toEndOf="@+id/textView10" />
 
     <TextView
         android:id="@+id/textView13"
@@ -112,7 +112,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editTextDate"
-        android:clickable="true"
         android:editable="false"
         android:focusable="false"
         android:onClick="clickEditTextDate"
@@ -146,8 +145,20 @@
         android:layout_height="wrap_content"
         android:text="Nombre de places :"
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_marginTop="17dp"
         android:layout_below="@+id/editTextTemps"
-        android:layout_toStartOf="@+id/buttonProposer"
-        android:layout_marginTop="39dp" />
+        android:layout_alignStart="@+id/textView11" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editTextNbPlaces"
+        android:editable="false"
+        android:focusable="false"
+        android:layout_below="@+id/editTextTemps"
+        android:layout_alignEnd="@+id/editTextTemps"
+        android:layout_toEndOf="@+id/textView17" />
 
 </RelativeLayout>

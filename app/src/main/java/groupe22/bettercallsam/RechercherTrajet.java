@@ -1,5 +1,6 @@
 package groupe22.bettercallsam;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -11,6 +12,7 @@ import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
@@ -19,6 +21,7 @@ public class RechercherTrajet extends AppCompatActivity {
 
     static EditText DateEdit;
     static EditText TempsEdit;
+    static EditText nb;
 
 
     @Override
@@ -29,33 +32,18 @@ public class RechercherTrajet extends AppCompatActivity {
         DateEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                afficherEditTextDate(v);
-            }
-        });
-        TempsEdit = (EditText) findViewById(R.id.editTextTemps);
-        TempsEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                afficherEditTextTemps(v);
+                DialogFragment newFragment = new DatePickerFragment();
+                newFragment.show(getFragmentManager(), "Date");
             }
         });
     }
 
     public void clickButtonRechercher(View view) {
         final Intent intent = new Intent(this, AffichageTrajets.class);
+        EditText ed = (EditText) findViewById(R.id.editTextVilleDepart);
+        intent.putExtra("villeDep", ed.getText().toString());
+        //intent.putExtra("adresseDep",)
         startActivity(intent);
-    }
-
-
-    public void afficherEditTextDate(View view) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getFragmentManager(), "Date");
-
-    }
-
-    public void afficherEditTextTemps(View view) {
-        DialogFragment newFragment = new TimePickerFragment();
-        newFragment.show(getFragmentManager(), "Heure");
     }
 
     public static class DatePickerFragment extends DialogFragment implements
@@ -74,12 +62,6 @@ public class RechercherTrajet extends AppCompatActivity {
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
-            /*if(day<10 && month<10)
-            DateEdit.setText("0" + day + "/" + "0" + (month + 1) + "/" + year);
-            if (day<10 && month>10)
-                DateEdit.setText("0" + day + "/" + (month + 1) + "/" + year);
-            if(day>10 && month<10)
-                DateEdit.setText(day + "/" + "0" + (month + 1) + "/" + year);*/
             DateEdit.setText(day + "/" + (month + 1) + "/" + year);
         }
     }
@@ -100,6 +82,5 @@ public class RechercherTrajet extends AppCompatActivity {
         public void onTimeSet(TimePicker view, int heureDuJour, int minute) {
             TempsEdit.setText(heureDuJour + ":" + minute);
         }
-
     }
 }
