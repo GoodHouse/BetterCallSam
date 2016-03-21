@@ -25,8 +25,12 @@ public class AffichageTrajets extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_affichage_trajets);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, message);
+
 
         final ListView listView = (ListView) findViewById(R.id.listView);
+
+        listView.setAdapter(adapter);
 
         final Firebase myFireBase = new Firebase("https://bettercallsam.firebaseio.com/");
 
@@ -40,6 +44,7 @@ public class AffichageTrajets extends AppCompatActivity {
                     for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                         postSnapshot.getValue();
                         Trajet trajet = postSnapshot.getValue(Trajet.class);
+                        adapter.notifyDataSetChanged();
                     }
                 }
 
