@@ -127,7 +127,11 @@ public class ProposerTrajet extends AppCompatActivity
             m++;
             int d = c.get(Calendar.DAY_OF_MONTH);
             if(year <= y && month <= m && day < d){
+
                 Toast.makeText(thisAct , "La date ne peut pas être dans le passé", Toast.LENGTH_LONG).show();
+
+                    Toast.makeText(thisAct , "La date ne peut pas être dans le passé", Toast.LENGTH_LONG).show();
+
             }
             else {
                 DateEdit.setText(jour + "/" + mois + "/" + year);

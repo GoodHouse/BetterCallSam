@@ -1,5 +1,6 @@
 package groupe22.bettercallsam;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -14,11 +15,13 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
 public class RechercherTrajet extends AppCompatActivity {
 
+    static Activity thisAct = null;
     static EditText DateEdit;
     static EditText TempsEdit;
     static EditText nb;
@@ -27,6 +30,7 @@ public class RechercherTrajet extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        thisAct = this;
         setContentView(R.layout.activity_rechercher_trajet);
         DateEdit = (EditText) findViewById(R.id.editTextDate);
         DateEdit.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +38,15 @@ public class RechercherTrajet extends AppCompatActivity {
             public void onClick(View v) {
                 DialogFragment newFragment = new DatePickerFragment();
                 newFragment.show(getFragmentManager(), "Date");
+            }
+        });
+
+        TempsEdit = (EditText) findViewById(R.id.editTextTemps);
+        TempsEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment newFragment = new TimePickerFragment();
+                newFragment.show(getFragmentManager(), "Heure");
             }
         });
     }
@@ -62,7 +75,24 @@ public class RechercherTrajet extends AppCompatActivity {
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
-            DateEdit.setText(day + "/" + (month + 1) + "/" + year);
+            month++;
+            String mois = (month < 10) ? "0" + month : "" + month;
+            String jour = (day < 10) ? "0" + day : "" + day;
+            final Calendar c = Calendar.getInstance();
+            int y = c.get(Calendar.YEAR);
+            int m = c.get(Calendar.MONTH);
+            m++;
+            int d = c.get(Calendar.DAY_OF_MONTH);
+            if(year <= y && month <= m && day < d){
+
+                Toast.makeText(thisAct, "La date ne peut pas être dans le passé", Toast.LENGTH_LONG).show();
+
+                Toast.makeText(thisAct , "La date ne peut pas être dans le passé", Toast.LENGTH_LONG).show();
+
+            }
+            else {
+                DateEdit.setText(jour + "/" + mois + "/" + year);
+            }
         }
     }
 
@@ -80,7 +110,9 @@ public class RechercherTrajet extends AppCompatActivity {
         }
 
         public void onTimeSet(TimePicker view, int heureDuJour, int minute) {
-            TempsEdit.setText(heureDuJour + ":" + minute);
+            String heure = (heureDuJour < 10) ? "0" + heureDuJour : "" + heureDuJour;
+            String min = (minute < 10) ? "0" + minute : "" + minute;
+            TempsEdit.setText(heure + ":" + min);
         }
     }
 }
