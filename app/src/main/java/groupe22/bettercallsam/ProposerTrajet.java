@@ -1,11 +1,13 @@
 package groupe22.bettercallsam;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +15,7 @@ import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -22,12 +25,12 @@ import com.firebase.client.Firebase;
 import java.util.Calendar;
 import java.util.Random;
 
-public class ProposerTrajet extends AppCompatActivity
-{
+public class ProposerTrajet extends AppCompatActivity implements View.OnClickListener {
     static Activity thisAct = null;
 
     static EditText DateEdit;
     static EditText TempsEdit;
+    static EditText nb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,9 @@ public class ProposerTrajet extends AppCompatActivity
             }
         });
 
+        nb = (EditText) findViewById(R.id.editTextNbPlaces);
+        nb.setOnClickListener(this);
+
     }
 
     public void clickButtonProposer(View view) {
@@ -60,6 +66,7 @@ public class ProposerTrajet extends AppCompatActivity
         final EditText textAdresseArrivee = (EditText) findViewById(R.id.editTextAdresseArrivee);
         final EditText textDate = (EditText) findViewById(R.id.editTextDate);
         final EditText textTemps = (EditText) findViewById(R.id.editTextTemps);
+        final EditText textNbPlaces = (EditText) findViewById(R.id.editTextNbPlaces);
 
         final Firebase myFireBase = new Firebase("https://bettercallsam.firebaseio.com/");
 
@@ -99,6 +106,52 @@ public class ProposerTrajet extends AppCompatActivity
 
         final Intent intent = new Intent(this, Accueil.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        numberPickerDialog();
+
+    }
+
+    private void numberPickerDialog(){
+        NumberPicker np = new NumberPicker(this);
+        np.setMaxValue(4);
+        np.setMinValue(1);
+
+        NumberPicker.OnValueChangeListener myValChangedListener =
+                new NumberPicker.OnValueChangeListener()
+                {
+
+                    public void onValueChange(NumberPicker picker, int oldVal, int newVal)
+                    {
+                        nb.setText(""+newVal);
+                    }
+                };
+        np.setOnValueChangedListener(myValChangedListener);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this).setView(np);
+
+        builder.setTitle("Nombre de places");
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+
+            }
+
+        });
+        builder.show();
+
     }
 
 

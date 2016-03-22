@@ -6,11 +6,13 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.NumberPicker;
@@ -19,7 +21,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class RechercherTrajet extends AppCompatActivity {
+public class RechercherTrajet extends AppCompatActivity implements View.OnClickListener {
 
     static Activity thisAct = null;
     static EditText DateEdit;
@@ -30,8 +32,10 @@ public class RechercherTrajet extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         thisAct = this;
         setContentView(R.layout.activity_rechercher_trajet);
+
         DateEdit = (EditText) findViewById(R.id.editTextDate);
         DateEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +53,11 @@ public class RechercherTrajet extends AppCompatActivity {
                 newFragment.show(getFragmentManager(), "Heure");
             }
         });
+
+        nb = (EditText) findViewById(R.id.editTextNbPlaces);
+        nb.setOnClickListener(this);
     }
+
 
     public void clickButtonRechercher(View view) {
         final Intent intent = new Intent(this, AffichageTrajets.class);
@@ -58,6 +66,53 @@ public class RechercherTrajet extends AppCompatActivity {
         //intent.putExtra("adresseDep",)
         startActivity(intent);
     }
+
+    @Override
+    public void onClick(View v) {
+
+        numberPickerDialog();
+
+    }
+
+    private void numberPickerDialog(){
+        NumberPicker np = new NumberPicker(this);
+        np.setMaxValue(4);
+        np.setMinValue(1);
+
+        NumberPicker.OnValueChangeListener myValChangedListener =
+                new NumberPicker.OnValueChangeListener()
+                {
+
+                    public void onValueChange(NumberPicker picker, int oldVal, int newVal)
+                    {
+                    nb.setText(""+newVal);
+                    }
+                };
+        np.setOnValueChangedListener(myValChangedListener);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this).setView(np);
+
+        builder.setTitle("Nombre de places");
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener()
+        {
+            @Override
+        public void onClick(DialogInterface dialog, int which)
+            {
+
+            }
+
+        });
+        builder.show();
+
+    }
+
 
     public static class DatePickerFragment extends DialogFragment implements
             DatePickerDialog.OnDateSetListener {
@@ -83,14 +138,13 @@ public class RechercherTrajet extends AppCompatActivity {
             int m = c.get(Calendar.MONTH);
             m++;
             int d = c.get(Calendar.DAY_OF_MONTH);
-            if(year <= y && month <= m && day < d){
+            if (year <= y && month <= m && day < d) {
 
                 Toast.makeText(thisAct, "La date ne peut pas être dans le passé", Toast.LENGTH_LONG).show();
 
-                Toast.makeText(thisAct , "La date ne peut pas être dans le passé", Toast.LENGTH_LONG).show();
+                Toast.makeText(thisAct, "La date ne peut pas être dans le passé", Toast.LENGTH_LONG).show();
 
-            }
-            else {
+            } else {
                 DateEdit.setText(jour + "/" + mois + "/" + year);
             }
         }
@@ -115,4 +169,12 @@ public class RechercherTrajet extends AppCompatActivity {
             TempsEdit.setText(heure + ":" + min);
         }
     }
+
+
+
+
+
+
 }
+
+

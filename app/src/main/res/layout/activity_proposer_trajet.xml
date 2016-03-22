@@ -160,7 +160,8 @@
         android:editable="false"
         android:focusable="false"
         android:layout_below="@+id/editTextTemps"
-        android:layout_toStartOf="@+id/buttonProposer"
-        android:layout_marginTop="39dp" />
+        android:layout_alignEnd="@+id/textProposerTrajet"
+        android:layout_alignParentEnd="false"
+        android:layout_toEndOf="@+id/textView17" />
 
 </RelativeLayout>
