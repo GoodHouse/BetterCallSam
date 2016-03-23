@@ -35,6 +35,8 @@
         </activity>
         <activity android:name=".AffichageTrajets" >
         </activity>
+        <activity android:name=".AffichageDetailsTrajet" >
+        </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"

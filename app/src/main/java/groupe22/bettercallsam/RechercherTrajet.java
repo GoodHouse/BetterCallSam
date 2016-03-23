@@ -71,11 +71,13 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
 
     public void clickButtonRechercher(View view) {
         final Intent intent = new Intent(this, AffichageTrajets.class);
-        EditText ed = (EditText) findViewById(R.id.editTextVilleDepart);
-        intent.putExtra("villeDep", ed.getText().toString());
+        EditText editVilleDepart = (EditText) findViewById(R.id.editTextVilleDepart);
+        EditText editAdresseDepart = (EditText) findViewById(R.id.editTextAdresseDepart);
+        intent.putExtra("pointDep", editAdresseDepart.getText().toString() + ", " + editVilleDepart.getText().toString());
 
-        EditText ea = (EditText) findViewById(R.id.editTextVilleArrivee);
-        intent.putExtra("villeArr", ea.getText().toString());
+        EditText editTextVilleArrivee = (EditText) findViewById(R.id.editTextVilleArrivee);
+        EditText editTextAdresseArrivee = (EditText) findViewById(R.id.editTextAdresseArrivee);
+        intent.putExtra("pointArr", editTextAdresseArrivee.getText().toString() + ", " + editTextVilleArrivee.getText().toString());
 
         EditText dd = (EditText) findViewById(R.id.editTextDate);
         intent.putExtra("dateDep", dd.getText().toString());
