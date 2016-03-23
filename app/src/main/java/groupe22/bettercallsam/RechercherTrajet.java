@@ -191,25 +191,6 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
             TempsEdit.setText(heure + ":" + min);
         }
     }
-
-    public Boolean comparerTrajet(String pointDepart, String pointArrivee) {
-        Geocoder gc = new Geocoder(getApplicationContext());
-
-        try {
-            List<Address> adTrajet1 = gc.getFromLocationName(pointDepart, 1);
-            List<Address> adTrajet2 = gc.getFromLocationName(pointArrivee, 1);
-            Address adT1 = adTrajet1.get(0);
-            Address adT2 = adTrajet2.get(0);
-            double lat1 = adT1.getLatitude();
-            double long1 = adT1.getLongitude();
-            double lat2 = adT2.getLatitude();
-            double long2 = adT2.getLongitude();
-            return lat1 >= lat2 + 0.004 && lat1 <= lat2 - 0.004 && long1 >= long2 + 0.004 && long1 <= long2 + 0.004;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
 }
 
 

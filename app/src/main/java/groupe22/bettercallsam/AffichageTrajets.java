@@ -175,7 +175,9 @@ public class AffichageTrajets extends AppCompatActivity {
             double longDem = addressDem.getLongitude();
             return latProp >= latDem - 0.004 && latProp <= latDem + 0.004 && longProp >= longDem - 0.004 && longProp <= longDem + 0.004;
         } catch (IOException e) {
-            e.printStackTrace();
+            Intent intent = new Intent(this, RechercherTrajet.class);
+            Toast.makeText(this, "Merci de vérifier les adresses", Toast.LENGTH_LONG).show();
+            startActivity(intent);
         }
         return false;
     }
