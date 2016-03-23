@@ -1,9 +1,12 @@
 package groupe22.bettercallsam;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -107,10 +110,21 @@ public class AffichageTrajets extends AppCompatActivity {
 
                         }
 
-                        ArrayAdapter<String> adapter = new ArrayAdapter<String>(AffichageTrajets.this,
+                        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(AffichageTrajets.this,
                                 android.R.layout.simple_list_item_1,
                                 listTrajet);
                         listView.setAdapter(adapter);
+
+                        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                String item = adapter.getItem(position);
+                                final Intent intent = new Intent(getApplicationContext(), AffichageDetailsTrajet.class);
+                                intent.putExtra("trajet", item);
+                                startActivity(intent);
+
+                            }
+                        });*/
                     }
 
                     @Override
@@ -125,6 +139,12 @@ public class AffichageTrajets extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class)
 
             );
+
+        }
+
+        protected void onListItemClick(ListView l, View v, int position, long id)
+        {
+            
         }
 
 }

@@ -18,73 +18,129 @@
             android:src="@drawable/icon" />
 
         <TextView
-            android:id="@+id/textProposerTrajet"
+            android:id="@+id/textTrajet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="30dp"
-            android:text=""
+            android:text="Trajet"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="24dp"
             android:layout_alignParentTop="true" />
 
-        <TextView
-            android:id="@+id/textView10"
+        <!--<TextView
+            android:id="@+id/textViewDepart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Départ :"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_below="@+id/imageView"
-            android:layout_alignEnd="@+id/imageView" />
+            android:layout_alignEnd="@+id/imageView"
+            android:layout_marginTop="29dp" />
+
+        <TextView
+            android:id="@+id/textViewArrivee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "Arrivée :"
+            android:layout_below="@+id/textViewDepart"
+            android:layout_alignEnd="@+id/imageView"
+            android:layout_marginTop="35dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
 
     <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-        android:text="Arrivée :"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_marginTop="29dp"
-        android:layout_below="@+id/textView10"
-        android:layout_alignStart="@+id/textView16" />
+        android:id="@+id/textViewJour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Jour :"
+        android:layout_below="@+id/textViewArrivee"
+        android:layout_alignStart="@+id/textViewDepart"
+        android:layout_marginTop="35dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        />
 
     <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-        android:text="Jour :"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_alignBaseline="@+id/textView16"
-        android:layout_alignBottom="@+id/textView16"
-        android:layout_alignStart="@+id/textView16" />
-
-        <Button
-            android:id="@+id/buttonProposer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="18dp"
-            android:text="Réserver"
-            android:onClick="clickButtonProposer"/>
-
-    <TextView
-            android:id="@+id/textView16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        android:id="@+id/textViewHeure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Heure :"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_marginTop="32dp"
-        android:layout_below="@+id/textView11"
-        android:layout_alignEnd="@+id/textView10" />
+        android:layout_below="@+id/textViewJour"
+        android:layout_alignStart="@+id/textViewDepart"
+        android:layout_marginTop="29dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre de places réservées :"
+        android:layout_below="@+id/textViewHeure"
+        android:layout_alignStart="@+id/textViewDepart"
+        android:layout_marginTop="29dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
 
+        android:id="@+id/textView23" /> -->
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Réserver"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"
+        />
 
     <TextView
-            android:id="@+id/textView17"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre de places :"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_below="@+id/textView11"
-        android:layout_alignStart="@+id/textView16"
-        android:layout_marginTop="121dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="a"
+        android:id="@+id/textViewDep"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+         />
+
+
+
+   <!-- <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=""
+        android:id="@+id/textViewJ"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBottom="@+id/textViewJour"
+        android:layout_toEndOf="@+id/textViewJour" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=""
+        android:id="@+id/textViewTemps"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBottom="@+id/textViewHeure"
+        android:layout_toEndOf="@+id/textViewHeure" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=""
+        android:id="@+id/textViewNbPlaces"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBottom="@+id/textView23"
+        android:layout_toEndOf="@+id/textView23" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=""
+        android:id="@+id/textViewArr"
+        android:layout_marginLeft="10dp"
+        android:layout_above="@+id/textViewJour"
+        android:layout_toEndOf="@+id/textViewArrivee" />-->
+
 
 </RelativeLayout>

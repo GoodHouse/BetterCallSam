@@ -96,7 +96,6 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
         NumberPicker.OnValueChangeListener myValChangedListener =
                 new NumberPicker.OnValueChangeListener()
                 {
-
                     public void onValueChange(NumberPicker picker, int oldVal, int newVal)
                     {
                     nb.setText(""+newVal);
