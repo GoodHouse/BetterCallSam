@@ -19,9 +19,16 @@ import android.widget.NumberPicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
+import com.google.android.gms.maps.*;
+
+import android.location.*;
 
 public class RechercherTrajet extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,9 +37,10 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
     static EditText TempsEdit;
     static EditText nb;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
 
         thisAct = this;
@@ -121,10 +129,8 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
             {
 
             }
-
         });
         builder.show();
-
     }
 
 
@@ -153,9 +159,6 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
             m++;
             int d = c.get(Calendar.DAY_OF_MONTH);
             if (year <= y && month <= m && day < d) {
-
-                Toast.makeText(thisAct, "La date ne peut pas être dans le passé", Toast.LENGTH_LONG).show();
-
                 Toast.makeText(thisAct, "La date ne peut pas être dans le passé", Toast.LENGTH_LONG).show();
 
             } else {
@@ -186,11 +189,24 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    public Boolean comparerTrajet(String pointDepart, String pointArrivee) {
+        Geocoder gc = new Geocoder(getApplicationContext());
 
-
-
-
-
+        try {
+            List<Address> adTrajet1 = gc.getFromLocationName(pointDepart, 1);
+            List<Address> adTrajet2 = gc.getFromLocationName(pointArrivee, 1);
+            Address adT1 = adTrajet1.get(0);
+            Address adT2 = adTrajet2.get(0);
+            double lat1 = adT1.getLatitude();
+            double long1 = adT1.getLongitude();
+            double lat2 = adT2.getLatitude();
+            double long2 = adT2.getLongitude();
+            return lat1 >= lat2 + 0.004 && lat1 <= lat2 - 0.004 && long1 >= long2 + 0.004 && long1 <= long2 + 0.004;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
 
 
