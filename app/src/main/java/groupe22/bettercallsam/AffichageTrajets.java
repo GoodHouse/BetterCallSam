@@ -110,12 +110,13 @@ public class AffichageTrajets extends AppCompatActivity {
 
                             map = new HashMap<String, String>();
 
-                            map.put("departVille", "Ville depart " + villeDepart);
-                            map.put("departAdresse", adDep);
-                            map.put("arriveeVille", villeArrivee);
-                            map.put("arriveeAdresse", adArr);
-                            map.put("date", dateDep+ " à " +heureDep);
-                            map.put("nbPlaces", placeDispo);
+                            map.put("departVille", "Ville de depart  : " + villeDepart);
+                            map.put("departAdresse","Adresse de départ : " + adDep);
+                            map.put("arriveeVille", "Ville d'arivée : " +villeArrivee);
+                            map.put("arriveeAdresse", "Adresse d'arivée : " + adArr);
+                            map.put("date", "Départ le " + dateDep+ " à " +heureDep);
+                            map.put("nbPlaces", "Nombre de places disponibles : " + placeDispo);
+                            map.put("idTrajet", postSnapshot.getKey());
 
 
                             listTrajet.add(map);
@@ -130,23 +131,23 @@ public class AffichageTrajets extends AppCompatActivity {
 
                     }*/
 
-                    SimpleAdapter mSchedule = new SimpleAdapter(getApplicationContext(), listTrajet, R.layout.activity_affichage_item,
-                            new String[] {"departVille","departAdresse","arriveeVille", "arriveeAdresse","date","nbPlaces"}, new int[] {R.id.departVille, R.id.departAdresse, R.id.arriveeVille, R.id.arriveeAdresse, R.id.date, R.id.nbPlaces});
+                    final SimpleAdapter mSchedule = new SimpleAdapter(getApplicationContext(), listTrajet, R.layout.activity_affichage_item,
+                            new String[] {"departVille","departAdresse","arriveeVille", "arriveeAdresse","date","nbPlaces", "idTrajet"}, new int[] {R.id.departVille, R.id.departAdresse, R.id.arriveeVille, R.id.arriveeAdresse, R.id.date, R.id.nbPlaces, R.id.idTrajet});
 
 
                     listView.setAdapter(mSchedule);
 
-                    /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                String item = adapter.getItem(position);
+                                String item = mSchedule.getItem(position).toString();
                                 final Intent intent = new Intent(AffichageTrajets.this, AffichageDetailsTrajet.class);
                                 intent.putExtra("trajet", item);
                                 intent.putExtra("nbPlacesReservees", nbPlaces);
                                 startActivity(intent);
 
                             }
-                        });*/
+                        });
 
                 }
 
