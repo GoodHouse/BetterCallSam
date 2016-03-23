@@ -2230,8 +2230,6 @@ containing a value of this type.
         public static final int always=0x7f0c0032;
         public static final int beginning=0x7f0c0030;
         public static final int bottom=0x7f0c001c;
-        public static final int button1=0x7f0c00be;
-        public static final int button2=0x7f0c00bd;
         public static final int buttonConnexion=0x7f0c0098;
         public static final int buttonDeconnexion=0x7f0c006e;
         public static final int buttonInscription=0x7f0c0080;
@@ -2310,7 +2308,6 @@ containing a value of this type.
         public static final int never=0x7f0c0035;
         public static final int none=0x7f0c0010;
         public static final int normal=0x7f0c000c;
-        public static final int numberPicker1=0x7f0c00bc;
         public static final int or_section=0x7f0c00a8;
         public static final int parallax=0x7f0c001a;
         public static final int parentPanel=0x7f0c0046;
@@ -2462,11 +2459,10 @@ containing a value of this type.
         public static final int notification_template_media=0x7f040031;
         public static final int notification_template_part_chronometer=0x7f040032;
         public static final int notification_template_part_time=0x7f040033;
-        public static final int number_picker_interface=0x7f040034;
-        public static final int select_dialog_item_material=0x7f040035;
-        public static final int select_dialog_multichoice_material=0x7f040036;
-        public static final int select_dialog_singlechoice_material=0x7f040037;
-        public static final int support_simple_spinner_dropdown_item=0x7f040038;
+        public static final int select_dialog_item_material=0x7f040034;
+        public static final int select_dialog_multichoice_material=0x7f040035;
+        public static final int select_dialog_singlechoice_material=0x7f040036;
+        public static final int support_simple_spinner_dropdown_item=0x7f040037;
     }
     public static final class menu {
         public static final int menu_main=0x7f0d0000;

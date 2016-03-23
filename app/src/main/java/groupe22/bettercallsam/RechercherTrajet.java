@@ -8,7 +8,9 @@ import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Geocoder;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -18,8 +20,14 @@ import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import android.location.*;
+
 
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 public class RechercherTrajet extends AppCompatActivity implements View.OnClickListener {
 
@@ -27,6 +35,8 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
     static EditText DateEdit;
     static EditText TempsEdit;
     static EditText nb;
+
+    Geocoder gc = new Geocoder(this);
 
 
     @Override
@@ -61,17 +71,30 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
 
     public void clickButtonRechercher(View view) {
         final Intent intent = new Intent(this, AffichageTrajets.class);
-        EditText ed = (EditText) findViewById(R.id.editTextVilleDepart);
-        intent.putExtra("villeDep", ed.getText().toString());
-        //intent.putExtra("adresseDep",)
+
+        EditText editTextVilleDepart = (EditText) findViewById(R.id.editTextVilleDepart);
+        EditText editTextAdresseDepart = (EditText) findViewById(R.id.editTextAdresseDepart);
+        EditText editTextVilleArrivee = (EditText) findViewById(R.id.editTextVilleArrivee);
+        EditText editTextAdresseArrivee = (EditText) findViewById(R.id.editTextAdresseArrivee);
+        EditText editTextDate = (EditText) findViewById(R.id.editTextDate);
+        EditText editTextTemps = (EditText) findViewById(R.id.editTextTemps);
+        EditText editTextNbPlaces = (EditText) findViewById(R.id.editTextNbPlaces);
+
+
+        intent.putExtra("villeDepart", editTextVilleDepart.getText().toString().toLowerCase());
+        intent.putExtra("adresseDepart", editTextAdresseDepart.getText().toString().toLowerCase());
+        intent.putExtra("villeArrivee", editTextVilleArrivee.getText().toString().toLowerCase());
+        intent.putExtra("adresseArrivee", editTextAdresseArrivee.getText().toString().toLowerCase());
+        intent.putExtra("date", editTextDate.getText().toString());
+        intent.putExtra("heure", editTextTemps.getText().toString());
+        intent.putExtra("nbPlaces", Integer.parseInt(editTextNbPlaces.getText().toString()));
+
         startActivity(intent);
     }
 
     @Override
     public void onClick(View v) {
-
         numberPickerDialog();
-
     }
 
     private void numberPickerDialog(){
@@ -100,11 +123,9 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
             }
         });
 
-        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener()
-        {
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
-        public void onClick(DialogInterface dialog, int which)
-            {
+            public void onClick(DialogInterface dialog, int which) {
 
             }
 
@@ -169,12 +190,6 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
             TempsEdit.setText(heure + ":" + min);
         }
     }
-
-
-
-
-
-
 }
 
 

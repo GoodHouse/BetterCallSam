@@ -16,7 +16,6 @@ public class Trajet {
     private String heureDepart;
     private int nombrePlaceDisponibles;
     private String conducteur;
-    private Map<String, String> passagers;
 
 
     public Trajet() {
@@ -31,7 +30,6 @@ public class Trajet {
         this.dateDepart = dateDepart;
         this.heureDepart = heureDepart;
         this.nombrePlaceDisponibles = nombrePlaceDisponibles;
-        this.passagers = new HashMap<>();
         this.conducteur = conducteur;
     }
 
@@ -81,11 +79,6 @@ public class Trajet {
 
     public void setVilleDepart(String villeDepart) {
         this.villeDepart = villeDepart;
-    }
-
-    public void ajouterPassager(String passager, int nombreDePlaces){
-        this.passagers.put(passager, Integer.toString(nombreDePlaces));
-        this.nombrePlaceDisponibles -= nombreDePlaces;
     }
 
     public String getConducteur(){

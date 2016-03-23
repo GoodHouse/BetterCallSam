@@ -27,7 +27,18 @@ public class AffichageTrajets extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_affichage_trajets);
         Intent intent = getIntent();
-        final String ville = intent.getStringExtra("ville");
+       /* final String villeDepart = intent.getStringExtra("villeDep");
+        final String adresseDepart = intent.getStringExtra("adresseDepart");
+        final String villeArrivee = intent.getStringExtra("villeArrivee");
+        final String adresseArrivee = intent
+
+        intent.putExtra("villeDepart", editTextVilleDepart.getText().toString().toLowerCase());
+        intent.putExtra("adresseDepart", editTextAdresseDepart.getText().toString().toLowerCase());
+        intent.putExtra("villeArrivee", editTextVilleArrivee.getText().toString().toLowerCase());
+        intent.putExtra("adresseArrivee", editTextAdresseArrivee.getText().toString().toLowerCase());
+        intent.putExtra("date", editTextDate.getText().toString());
+        intent.putExtra("heure", editTextTemps.getText().toString());
+        intent.putExtra("nbPlaces", Integer.parseInt(editTextNbPlaces.getText().toString()));*/
 
 
         final ListView listView = (ListView) findViewById(R.id.listView);
@@ -46,12 +57,12 @@ public class AffichageTrajets extends AppCompatActivity {
                         postSnapshot.getValue();
                         Trajet trajet = postSnapshot.getValue(Trajet.class);
                         String villeDep = trajet.getVilleDepart();
-                        if (ville.equals(villeDep)) {
+                        /*if (ville.equals(villeDep)) {
                             String villeArr = trajet.getVilleArrivee();
                             String adDep = trajet.getAdresseDepart();
                             String adArr = trajet.getAdresseArrivee();
                             Toast.makeText(getApplicationContext(), villeDep + "\n" + villeArr + "\n" + adDep + "\n" + adArr, Toast.LENGTH_LONG).show();
-                        }
+                        }*/
                     }
                 }
 

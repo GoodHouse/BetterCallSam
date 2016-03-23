@@ -2,11 +2,95 @@
 <items version="2" >
 
     <item
-        jar="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/exploded-aar/com.firebaseui/firebase-ui/0.3.1/jars/classes.jar"
+        jar="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-84697b89bbff35fcbdb75d440bfddfae31b2b2d7.jar" />
+    </item>
+    <item
+        jar="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/exploded-aar/com.firebaseui/firebase-ui/0.3.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="5f34a8aeb0eaaa2d69752d56102a8c808117058e">
-        <dex dex="/home/castazer/testBetter/BetterCallSam/app/build/intermediates/pre-dexed/debug/classes-4a8e24d20ef73fcfb846ea98b0907cd9f805492a.jar" />
+        <dex dex="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/pre-dexed/debug/classes-13a36c14e25c6728734fe9476969184cc01321bc.jar" />
+    </item>
+    <item
+        jar="/home/goodhouse/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.2.2/3c8f6018eaa72d43b261181e801e6f8676c16ef6/jackson-databind-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/pre-dexed/debug/jackson-databind-2.2.2-7bf8ae5885b4b85f7b762de6b2e100f2ce30a557.jar" />
+    </item>
+    <item
+        jar="/home/goodhouse/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1-cc7a5687147530a56d0ca45560c3a09a155e5a6e.jar" />
+    </item>
+    <item
+        jar="/home/goodhouse/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.11/d37cb67277928cf59344b4196af8d9cee1f1a27c/tubesock-0.0.11.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d37cb67277928cf59344b4196af8d9cee1f1a27c">
+        <dex dex="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/pre-dexed/debug/tubesock-0.0.11-f615081cfc2e57bd360315ba62824b96b1a69dc0.jar" />
+    </item>
+    <item
+        jar="/home/goodhouse/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.3.1/4d53b7d6983247af02b8fe7e4228fff555a5e828/firebase-client-jvm-2.3.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4d53b7d6983247af02b8fe7e4228fff555a5e828">
+        <dex dex="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/pre-dexed/debug/firebase-client-jvm-2.3.1-10f049ddaebdcde63f27d199dba43e5a96df0a0d.jar" />
+    </item>
+    <item
+        jar="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/pre-dexed/debug/classes-92a2423c0a71cca85227f7f74c9a178cfb1e251d.jar" />
+    </item>
+    <item
+        jar="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/pre-dexed/debug/classes-e970a2948e37e4f4bb708da12bb6a23457a8c6a9.jar" />
+    </item>
+    <item
+        jar="/home/goodhouse/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.2-b90708f66e9e185e1ebbd54b7d5d614e756c18fe.jar" />
+    </item>
+    <item
+        jar="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/pre-dexed/debug/classes-816f8d9886c7b2fd1d4f7711c987acaa5c5d94a9.jar" />
+    </item>
+    <item
+        jar="/home/goodhouse/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.2.2/285cb9c666f0f0f3dd8a1be04e1f457eb7b15113/jackson-annotations-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
+        <dex dex="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.2.2-cfe7fd497f426fe4d19b20ecd3179040220f6a17.jar" />
+    </item>
+    <item
+        jar="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/pre-dexed/debug/classes-44028bf0a0052ec26b6c9863ce2b26b762064fb0.jar" />
+    </item>
+    <item
+        jar="/home/goodhouse/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.3.1/be29b24233711c419ce935aa0a1b12ebc49d1c9a/firebase-client-android-2.3.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="be29b24233711c419ce935aa0a1b12ebc49d1c9a">
+        <dex dex="/home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/pre-dexed/debug/firebase-client-android-2.3.1-8e12a6e75dfe22900f6379da7d082b5e29fd1a43.jar" />
     </item>
 
 </items>
