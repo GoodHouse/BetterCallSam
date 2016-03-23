@@ -23,7 +23,6 @@ public class AffichageDetailsTrajet extends AppCompatActivity {
         final String trajet = intent.getStringExtra("trajet");
         final String nbPlacesReservees = intent.getStringExtra("nombrePlaces");
 
-        Toast.makeText(getBaseContext(), trajet, Toast.LENGTH_LONG).show();
         TextView tv = (TextView)findViewById(R.id.textViewDep);
         Button button = (Button) findViewById(R.id.boutonReserver);
 

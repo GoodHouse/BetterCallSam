@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.firebase.client.AuthData;
@@ -24,7 +25,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class AffichageTrajets extends AppCompatActivity {
 
@@ -42,9 +45,6 @@ public class AffichageTrajets extends AppCompatActivity {
         final String heure = intent.getStringExtra("heure");
         //final int nbPlaces = intent.getIntExtra("nbPlaces", 1);
 
-
-
-
         Date dep = null;
         try {
             dep = sdf.parse(heure);
@@ -58,7 +58,7 @@ public class AffichageTrajets extends AppCompatActivity {
         //Toast.makeText(this, nbPlaces, Toast.LENGTH_LONG).show();
 
         final ListView listView = (ListView) findViewById(R.id.listView);
-        final ArrayList<String> listTrajet = new ArrayList<>();
+        final ArrayList<HashMap<String,String>> listTrajet = new ArrayList<>();
 
         final Firebase myFireBase = new Firebase("https://bettercallsam.firebaseio.com/");
 
@@ -74,8 +74,10 @@ public class AffichageTrajets extends AppCompatActivity {
                 public void onDataChange(DataSnapshot snapshot) {
 
                     snapshot = snapshot.child("trips");
+                    HashMap<String, String> map;
                     for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                         postSnapshot.getValue();
+                        //idTrajet = postSnapshot.getKey().toString();
                         Trajet trajet = postSnapshot.getValue(Trajet.class);
                         String pointDepPropose = trajet.getAdresseDepart() + ", " + trajet.getVilleDepart();
                         String pointArrPropose = trajet.getAdresseArrivee() + ", " + trajet.getVilleArrivee();
@@ -92,7 +94,7 @@ public class AffichageTrajets extends AppCompatActivity {
                         }
 
                         if(
-                                nombrePlaces <= places &&
+                               //nbPlaces <= places &&
                                 comparerHoraires(dateDem, dateProp, heureDem, heureProp) &&
                                         comparerAdresses(pointDepDemande, pointDepPropose) &&
                                         comparerAdresses(pointArrDemande, pointArrPropose)
@@ -104,30 +106,37 @@ public class AffichageTrajets extends AppCompatActivity {
                             String villeDepart = trajet.getVilleDepart().toString();
                             String dateDep = trajet.getDateDepart().toString();
                             String heureDep = trajet.getHeureDepart().toString();
-                            int placeDispo = trajet.getNombrePlaceDisponibles();
+                            String placeDispo = Integer.toString(trajet.getNombrePlaceDisponibles());
+
+                            map = new HashMap<String, String>();
+
+                            map.put("departVille", "Ville depart " + villeDepart);
+                            map.put("departAdresse", adDep);
+                            map.put("arriveeVille", villeArrivee);
+                            map.put("arriveeAdresse", adArr);
+                            map.put("date", dateDep+ " à " +heureDep);
+                            map.put("nbPlaces", placeDispo);
 
 
-                            String traj = "Trajet " + compt + " :\n \n" + "Adresse de départ : " + villeDepart + ", " + adDep + "\n" + "Adresse d'arrivée : " + villeArrivee + ", " + adArr + "\n \n"
-                                    + "Date de départ : " + dateDep + " à " + heureDep + "\n" + "Places disponibles : " + placeDispo + "\n";
-                            listTrajet.add(traj);
+                            listTrajet.add(map);
 
                         }
                     }
 
 
-                    if (compt == 0) {
+                   /* if (compt == 0) {
                         final String erreur = "Il n'y a pas de trajet";
                         listTrajet.add(erreur);
 
-                    }
+                    }*/
 
-                    final ArrayAdapter<String> adapter = new ArrayAdapter<String>(AffichageTrajets.this,
-                            android.R.layout.simple_list_item_1,
-                            listTrajet);
+                    SimpleAdapter mSchedule = new SimpleAdapter(getApplicationContext(), listTrajet, R.layout.activity_affichage_item,
+                            new String[] {"departVille","departAdresse","arriveeVille", "arriveeAdresse","date","nbPlaces"}, new int[] {R.id.departVille, R.id.departAdresse, R.id.arriveeVille, R.id.arriveeAdresse, R.id.date, R.id.nbPlaces});
 
-                    listView.setAdapter(adapter);
 
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    listView.setAdapter(mSchedule);
+
+                    /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                 String item = adapter.getItem(position);
@@ -137,7 +146,7 @@ public class AffichageTrajets extends AppCompatActivity {
                                 startActivity(intent);
 
                             }
-                        });
+                        });*/
 
                 }
 

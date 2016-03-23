@@ -99,16 +99,19 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
     }
 
     private void numberPickerDialog(){
-        NumberPicker np = new NumberPicker(this);
+        final NumberPicker np = new NumberPicker(this);
         np.setMaxValue(4);
         np.setMinValue(1);
+        np.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        np.setValue(1);
+
 
         NumberPicker.OnValueChangeListener myValChangedListener =
                 new NumberPicker.OnValueChangeListener()
                 {
                     public void onValueChange(NumberPicker picker, int oldVal, int newVal)
                     {
-                    nb.setText(""+newVal);
+                        nb.setText(""+newVal);
                     }
                 };
         np.setOnValueChangedListener(myValChangedListener);
@@ -119,7 +122,6 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
             }
         });
 
