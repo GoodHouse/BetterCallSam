@@ -1,8 +1,9 @@
+package groupe22.bettercallsam;
+
 /**
  * Created by goodhouse on 23/03/16.
  */
 public class Reservation {
-    private String trajet;
     private String passager;
     private int nbPlaces;
     private Boolean accepte;
@@ -10,8 +11,7 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(String trajet, String passager, int nbPlaces, Boolean accepte) {
-        this.trajet = trajet;
+    public Reservation(String passager, int nbPlaces, Boolean accepte) {
         this.passager = passager;
         this.nbPlaces = nbPlaces;
         this.accepte = accepte;
@@ -23,14 +23,6 @@ public class Reservation {
 
     public void setPassager(String passager) {
         this.passager = passager;
-    }
-
-    public String getTrajet() {
-        return trajet;
-    }
-
-    public void setTrajet(String trajet) {
-        this.trajet = trajet;
     }
 
     public int getNbPlaces() {
