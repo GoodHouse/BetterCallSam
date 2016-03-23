@@ -19,7 +19,9 @@ import android.widget.NumberPicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class RechercherTrajet extends AppCompatActivity implements View.OnClickListener {
 
@@ -63,7 +65,19 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
         final Intent intent = new Intent(this, AffichageTrajets.class);
         EditText ed = (EditText) findViewById(R.id.editTextVilleDepart);
         intent.putExtra("villeDep", ed.getText().toString());
-        //intent.putExtra("adresseDep",)
+
+        EditText ea = (EditText) findViewById(R.id.editTextVilleArrivee);
+        intent.putExtra("villeArr", ea.getText().toString());
+
+        EditText dd = (EditText) findViewById(R.id.editTextDate);
+        intent.putExtra("dateDep", dd.getText().toString());
+
+        EditText nbP = (EditText) findViewById(R.id.editTextNbPlaces);
+        intent.putExtra("nbPlaces", nbP.getText().toString());
+
+        EditText h = (EditText) findViewById(R.id.editTextTemps);
+        intent.putExtra("heure", h.getText().toString());
+
         startActivity(intent);
     }
 
@@ -148,6 +162,8 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
                 DateEdit.setText(jour + "/" + mois + "/" + year);
             }
         }
+
+
     }
 
 

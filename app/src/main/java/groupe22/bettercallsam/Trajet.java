@@ -67,6 +67,11 @@ public class Trajet {
         this.dateDepart = dateDepart;
     }
 
+    public String getHeureDepart() {
+        return heureDepart;
+    }
+
+
     public int getNombrePlaceDisponibles() {
         return nombrePlaceDisponibles;
     }

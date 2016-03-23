@@ -92,7 +92,7 @@ public class ProposerTrajet extends AppCompatActivity implements View.OnClickLis
                 textAdresseArrivee.getText().toString(),
                 textDate.getText().toString(),
                 textTemps.getText().toString(),
-                3,
+                Integer.parseInt(textNbPlaces.getText().toString()),
                 authData.getUid().toString()
         );
 
@@ -126,7 +126,7 @@ public class ProposerTrajet extends AppCompatActivity implements View.OnClickLis
 
                     public void onValueChange(NumberPicker picker, int oldVal, int newVal)
                     {
-                        nb.setText(""+newVal);
+                        nb.setText("" + newVal);
                     }
                 };
         np.setOnValueChangedListener(myValChangedListener);
