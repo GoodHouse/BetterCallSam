@@ -86,7 +86,8 @@ public class ProposerTrajet extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
-        Trajet trajet = new Trajet(textVilleDepart.getText().toString(),
+        Trajet trajet = new Trajet(
+                textVilleDepart.getText().toString(),
                 textAdresseDepart.getText().toString(),
                 textVilleArrivee.getText().toString(),
                 textAdresseArrivee.getText().toString(),
@@ -141,17 +142,13 @@ public class ProposerTrajet extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener()
-        {
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
+            public void onClick(DialogInterface dialog, int which) {
 
             }
-
         });
         builder.show();
-
     }
 
 
