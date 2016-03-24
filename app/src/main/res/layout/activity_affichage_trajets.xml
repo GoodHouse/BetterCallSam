@@ -34,7 +34,8 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:choiceMode="singleChoice"
-        android:layout_marginBottom="175dp" />
+        android:layout_below="@+id/imageView"
+        android:layout_marginBottom="0dp" />
 
 
 </RelativeLayout>

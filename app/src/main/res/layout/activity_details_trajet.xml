@@ -1,85 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="0dp"
-        android:paddingRight="0dp"
-        android:paddingTop="0dp"
-        tools:context="groupe22.bettercallsam.AffichageDetailsTrajet">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context="groupe22.bettercallsam.AffichageDetailsTrajet">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="90dp"
-            android:layout_height="94dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:src="@drawable/icon" />
-
-        <TextView
-            android:id="@+id/textTrajet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="30dp"
-            android:text="Trajet"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="24dp"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentTop="true" />
-
-        <!--<TextView
-            android:id="@+id/textViewDepart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Départ :"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_below="@+id/imageView"
-            android:layout_alignEnd="@+id/imageView"
-            android:layout_marginTop="29dp" />
-
-        <TextView
-            android:id="@+id/textViewArrivee"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text = "Arrivée :"
-            android:layout_below="@+id/textViewDepart"
-            android:layout_alignEnd="@+id/imageView"
-            android:layout_marginTop="35dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="90dp"
+        android:layout_height="94dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/icon" />
 
     <TextView
-        android:id="@+id/textViewJour"
+        android:id="@+id/textTrajet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text = "Jour :"
-        android:layout_below="@+id/textViewArrivee"
-        android:layout_alignStart="@+id/textViewDepart"
-        android:layout_marginTop="35dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        />
-
-    <TextView
-        android:id="@+id/textViewHeure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Heure :"
-        android:layout_below="@+id/textViewJour"
-        android:layout_alignStart="@+id/textViewDepart"
-        android:layout_marginTop="29dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nombre de places réservées :"
-        android:layout_below="@+id/textViewHeure"
-        android:layout_alignStart="@+id/textViewDepart"
-        android:layout_marginTop="29dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-
-        android:id="@+id/textView23" /> -->
+        android:paddingTop="30dp"
+        android:text="Trajet"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="24dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -89,6 +36,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="18dp"
+        android:onClick="clickReservation"
         />
 
     <TextView
@@ -98,51 +46,9 @@
         android:text="a"
         android:id="@+id/textViewDep"
         android:textColor="#000000"
+        android:textSize="50px"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="125dp"
-         />
-
-
-
-   <!-- <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text=""
-        android:id="@+id/textViewJ"
-        android:layout_marginLeft="10dp"
-        android:layout_alignBottom="@+id/textViewJour"
-        android:layout_toEndOf="@+id/textViewJour" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text=""
-        android:id="@+id/textViewTemps"
-        android:layout_marginLeft="10dp"
-        android:layout_alignBottom="@+id/textViewHeure"
-        android:layout_toEndOf="@+id/textViewHeure" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text=""
-        android:id="@+id/textViewNbPlaces"
-        android:layout_marginLeft="10dp"
-        android:layout_alignBottom="@+id/textView23"
-        android:layout_toEndOf="@+id/textView23" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text=""
-        android:id="@+id/textViewArr"
-        android:layout_marginLeft="10dp"
-        android:layout_above="@+id/textViewJour"
-        android:layout_toEndOf="@+id/textViewArrivee" />-->
-
+        />
 
 </RelativeLayout>

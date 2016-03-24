@@ -43,7 +43,7 @@ public class AffichageTrajets extends AppCompatActivity {
         final String pointArrDemande = intent.getStringExtra("pointArr");
         final String dateDem = intent.getStringExtra("dateDep");
         final String heure = intent.getStringExtra("heure");
-        //final int nbPlaces = intent.getIntExtra("nbPlaces", 1);
+        final int nbPlaces = intent.getIntExtra("nbPlaces", 1);
 
         Date dep = null;
         try {
@@ -52,8 +52,7 @@ public class AffichageTrajets extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        final String nbPlaces = intent.getStringExtra("nbPlaces");
-        final int nombrePlaces = Integer.valueOf(nbPlaces);
+
 
         //Toast.makeText(this, nbPlaces, Toast.LENGTH_LONG).show();
 
@@ -94,7 +93,7 @@ public class AffichageTrajets extends AppCompatActivity {
                         }
 
                         if(
-                               //nbPlaces <= places &&
+                                nbPlaces <= places &&
                                 comparerHoraires(dateDem, dateProp, heureDem, heureProp) &&
                                         comparerAdresses(pointDepDemande, pointDepPropose) &&
                                         comparerAdresses(pointArrDemande, pointArrPropose)
@@ -112,8 +111,8 @@ public class AffichageTrajets extends AppCompatActivity {
 
                             map.put("departVille", "Ville de depart  : " + villeDepart);
                             map.put("departAdresse","Adresse de départ : " + adDep);
-                            map.put("arriveeVille", "Ville d'arivée : " +villeArrivee);
-                            map.put("arriveeAdresse", "Adresse d'arivée : " + adArr);
+                            map.put("arriveeVille", "Ville d'arrivée : " +villeArrivee);
+                            map.put("arriveeAdresse", "Adresse d'arrivée : " + adArr);
                             map.put("date", "Départ le " + dateDep+ " à " +heureDep);
                             map.put("nbPlaces", "Nombre de places disponibles : " + placeDispo);
                             map.put("idTrajet", postSnapshot.getKey());
@@ -138,16 +137,15 @@ public class AffichageTrajets extends AppCompatActivity {
                     listView.setAdapter(mSchedule);
 
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                String item = mSchedule.getItem(position).toString();
-                                final Intent intent = new Intent(AffichageTrajets.this, AffichageDetailsTrajet.class);
-                                intent.putExtra("trajet", item);
-                                intent.putExtra("nbPlacesReservees", nbPlaces);
-                                startActivity(intent);
-
-                            }
-                        });
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            HashMap<String, String> map = (HashMap<String, String>) listView.getItemAtPosition(position);
+                            final Intent intent = new Intent(AffichageTrajets.this, AffichageDetailsTrajet.class);
+                            intent.putExtra("trajet", map.get("idTrajet"));
+                            intent.putExtra("nbPlacesReservees", nbPlaces);
+                            startActivity(intent);
+                        }
+                    });
 
                 }
 
