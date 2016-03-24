@@ -47,13 +47,21 @@
             android:name="groupe22.bettercallsam.Accueil"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="groupe22.bettercallsam.RechercherTrajet" >
+        <activity
+            android:name="groupe22.bettercallsam.RechercherTrajet"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="groupe22.bettercallsam.ProposerTrajet" >
+        <activity
+            android:name="groupe22.bettercallsam.ProposerTrajet"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="groupe22.bettercallsam.AffichageTrajets" >
+        <activity
+            android:name="groupe22.bettercallsam.AffichageTrajets"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="groupe22.bettercallsam.AffichageDetailsTrajet" >
+        <activity
+            android:name="groupe22.bettercallsam.AffichageDetailsTrajet"
+            android:screenOrientation="portrait" >
         </activity>
 
         <meta-data
@@ -62,6 +70,11 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD_NaVV0-pSDDxjE3YPlbmIq1-obcOlah0" />
+
+        <activity android:name="groupe22.bettercallsam.MesTrajetsBoutons" >
+        </activity>
+        <activity android:name="groupe22.bettercallsam.MesTrajets" >
+        </activity>
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

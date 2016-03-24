@@ -29,13 +29,21 @@
             android:name=".Accueil"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".RechercherTrajet" >
+        <activity
+            android:name=".RechercherTrajet"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".ProposerTrajet" >
+        <activity
+            android:name=".ProposerTrajet"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".AffichageTrajets" >
+        <activity
+            android:name=".AffichageTrajets"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".AffichageDetailsTrajet" >
+        <activity
+            android:name=".AffichageDetailsTrajet"
+            android:screenOrientation="portrait">
         </activity>
 
         <meta-data
@@ -44,6 +52,11 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD_NaVV0-pSDDxjE3YPlbmIq1-obcOlah0" />
+
+        <activity android:name=".MesTrajetsBoutons"></activity>
+        <activity android:name=".MesTrajets"></activity>
+        <activity android:name=".AffichageReservationConducteur"></activity>
+        <activity android:name=".AffichageReservationPassager"></activity>
     </application>
 
 </manifest>

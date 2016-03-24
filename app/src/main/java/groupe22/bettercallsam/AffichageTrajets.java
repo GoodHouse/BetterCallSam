@@ -1,7 +1,5 @@
 package groupe22.bettercallsam;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
@@ -9,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -27,7 +24,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class AffichageTrajets extends AppCompatActivity {
 
@@ -52,31 +48,23 @@ public class AffichageTrajets extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
-
-        //Toast.makeText(this, nbPlaces, Toast.LENGTH_LONG).show();
-
         final ListView listView = (ListView) findViewById(R.id.listView);
-        final ArrayList<HashMap<String,String>> listTrajet = new ArrayList<>();
+        final ArrayList<HashMap<String, String>> listTrajet = new ArrayList<>();
 
         final Firebase myFireBase = new Firebase("https://bettercallsam.firebaseio.com/");
 
 
         final AuthData authData = myFireBase.getAuth();
-        if (authData != null)
-
-        {
+        if (authData != null) {
             final Date heureDem = dep;
+
             myFireBase.addValueEventListener(new ValueEventListener() {
                 //S'il est connecté, on récupère ses informations
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
-
                     snapshot = snapshot.child("trips");
                     HashMap<String, String> map;
                     for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                        postSnapshot.getValue();
-                        //idTrajet = postSnapshot.getKey().toString();
                         Trajet trajet = postSnapshot.getValue(Trajet.class);
                         String pointDepPropose = trajet.getAdresseDepart() + ", " + trajet.getVilleDepart();
                         String pointArrPropose = trajet.getAdresseArrivee() + ", " + trajet.getVilleArrivee();
@@ -92,12 +80,12 @@ public class AffichageTrajets extends AppCompatActivity {
                             e.printStackTrace();
                         }
 
-                        if(
+                        if (
                                 nbPlaces <= places &&
-                                comparerHoraires(dateDem, dateProp, heureDem, heureProp) &&
+                                        comparerHoraires(dateDem, dateProp, heureDem, heureProp) &&
                                         comparerAdresses(pointDepDemande, pointDepPropose) &&
                                         comparerAdresses(pointArrDemande, pointArrPropose)
-                                ){
+                                ) {
                             compt++;
                             String villeArrivee = trajet.getVilleArrivee().toString();
                             String adDep = trajet.getAdresseDepart().toString();
@@ -110,16 +98,14 @@ public class AffichageTrajets extends AppCompatActivity {
                             map = new HashMap<String, String>();
 
                             map.put("departVille", "Ville de depart  : " + villeDepart);
-                            map.put("departAdresse","Adresse de départ : " + adDep);
-                            map.put("arriveeVille", "Ville d'arrivée : " +villeArrivee);
+                            map.put("departAdresse", "Adresse de départ : " + adDep);
+                            map.put("arriveeVille", "Ville d'arrivée : " + villeArrivee);
                             map.put("arriveeAdresse", "Adresse d'arrivée : " + adArr);
-                            map.put("date", "Départ le " + dateDep+ " à " +heureDep);
+                            map.put("date", "Départ le " + dateDep + " à " + heureDep);
                             map.put("nbPlaces", "Nombre de places disponibles : " + placeDispo);
                             map.put("idTrajet", postSnapshot.getKey());
 
-
                             listTrajet.add(map);
-
                         }
                     }
 
@@ -131,7 +117,7 @@ public class AffichageTrajets extends AppCompatActivity {
                     }*/
 
                     final SimpleAdapter mSchedule = new SimpleAdapter(getApplicationContext(), listTrajet, R.layout.activity_affichage_item,
-                            new String[] {"departVille","departAdresse","arriveeVille", "arriveeAdresse","date","nbPlaces", "idTrajet"}, new int[] {R.id.departVille, R.id.departAdresse, R.id.arriveeVille, R.id.arriveeAdresse, R.id.date, R.id.nbPlaces, R.id.idTrajet});
+                            new String[]{"departVille", "departAdresse", "arriveeVille", "arriveeAdresse", "date", "nbPlaces", "idTrajet"}, new int[]{R.id.departVille, R.id.departAdresse, R.id.arriveeVille, R.id.arriveeAdresse, R.id.date, R.id.nbPlaces, R.id.idTrajet});
 
 
                     listView.setAdapter(mSchedule);
@@ -160,6 +146,7 @@ public class AffichageTrajets extends AppCompatActivity {
             );
 
     }
+
     public Boolean comparerAdresses(String pointProp, String pointDem) {
         Geocoder gc = new Geocoder(getApplicationContext());
 
@@ -181,22 +168,22 @@ public class AffichageTrajets extends AppCompatActivity {
         return false;
     }
 
-    public Boolean comparerHoraires(String dateDem, String dateProp, Date heureDem, Date heureProp){
+    public Boolean comparerHoraires(String dateDem, String dateProp, Date heureDem, Date heureProp) {
         int hProp = heureProp.getHours();
         int hDem = heureDem.getHours();
         int mProp = heureProp.getMinutes();
         int mDem = heureDem.getMinutes();
-        if(dateDem.equals(dateProp)){
-            if(hProp < hDem){
+        if (dateDem.equals(dateProp)) {
+            if (hProp < hDem) {
                 hProp++;
                 mProp -= 60;
             }
-            if(hProp > hDem){
+            if (hProp > hDem) {
                 hDem++;
                 mDem -= 60;
             }
-            if(hProp == hDem) {
-                if (mProp - mDem <= 30 && mProp - mDem >= - 30) {
+            if (hProp == hDem) {
+                if (mProp - mDem <= 30 && mProp - mDem >= -30) {
                     return true;
                 }
             }

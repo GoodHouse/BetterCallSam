@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="false"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context="groupe22.bettercallsam.MesTrajets">
 
     <ImageView
         android:id="@+id/imageView"
@@ -9,21 +17,26 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/icon" />
+
     <TextView
-        android:id="@+id/textMesTrajets"
+        android:id="@+id/textTrajet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_centerHorizontal="true"
         android:paddingTop="30dp"
         android:text="Mes trajets"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_marginStart="40dp" />
+
     <ListView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="false"
-        android:layout_marginTop="100dp" />
+        android:layout_height="fill_parent"
+        android:id="@+id/listView"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:choiceMode="singleChoice"
+        android:layout_below="@+id/imageView"
+        android:layout_marginBottom="0dp" />
 </RelativeLayout>

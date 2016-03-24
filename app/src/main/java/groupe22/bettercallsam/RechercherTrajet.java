@@ -12,23 +12,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-
-import com.google.android.gms.maps.*;
-
-import android.location.*;
 
 public class RechercherTrajet extends AppCompatActivity implements View.OnClickListener {
 
@@ -83,7 +73,7 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
         intent.putExtra("dateDep", dd.getText().toString());
 
         EditText nbP = (EditText) findViewById(R.id.editTextNbPlaces);
-        intent.putExtra("nbPlaces", nbP.getText().toString());
+        intent.putExtra("nbPlaces", Integer.parseInt(nbP.getText().toString()));
 
         EditText h = (EditText) findViewById(R.id.editTextTemps);
         intent.putExtra("heure", h.getText().toString());
@@ -98,7 +88,7 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
 
     }
 
-    private void numberPickerDialog(){
+    private void numberPickerDialog() {
         final NumberPicker np = new NumberPicker(this);
         np.setMaxValue(4);
         np.setMinValue(1);
@@ -107,11 +97,9 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
 
 
         NumberPicker.OnValueChangeListener myValChangedListener =
-                new NumberPicker.OnValueChangeListener()
-                {
-                    public void onValueChange(NumberPicker picker, int oldVal, int newVal)
-                    {
-                        nb.setText(""+newVal);
+                new NumberPicker.OnValueChangeListener() {
+                    public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                        nb.setText("" + newVal);
                     }
                 };
         np.setOnValueChangedListener(myValChangedListener);
@@ -125,11 +113,9 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
             }
         });
 
-        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener()
-        {
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
-        public void onClick(DialogInterface dialog, int which)
-            {
+            public void onClick(DialogInterface dialog, int which) {
 
             }
         });

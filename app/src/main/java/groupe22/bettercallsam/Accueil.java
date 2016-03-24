@@ -14,6 +14,8 @@ import com.firebase.client.ValueEventListener;
 
 public class Accueil extends AppCompatActivity {
 
+    Utilisateur user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,23 +34,7 @@ public class Accueil extends AppCompatActivity {
                 //S'il est connecté, on récupère ses informations
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
-                    /*for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                        //Le for boucle sur tous les noeuds de la base, il faut donc savoir si on est sur le bon noeuds
-                        //en l'occurrence, "users" ici, avant de pouvoir récupérer notre utilisateur
-                        if (postSnapshot.getKey() == "users") {
-                            Utilisateur user = postSnapshot.child(authData.getUid()).getValue(Utilisateur.class);
-
-                            //Selon si l'utilisateur est conducteur ou non, on cache le bouton de proposition de trajets
-                            if (!user.isEstConducteur()) {
-                                buttonProposerTrajet.setEnabled(false);
-                                buttonProposerTrajet.setVisibility(View.INVISIBLE);
-                            } else {
-                                buttonProposerTrajet.setEnabled(true);
-                                buttonProposerTrajet.setVisibility(View.VISIBLE);
-                            }
-                        }
-                    }*/
-                    Utilisateur user = snapshot.child("users").child(authData.getUid()).getValue(Utilisateur.class);
+                    user = snapshot.child("users").child(authData.getUid()).getValue(Utilisateur.class);
                     if (!user.isEstConducteur()) {
                         buttonProposerTrajet.setEnabled(false);
                         buttonProposerTrajet.setVisibility(View.INVISIBLE);
@@ -88,10 +74,15 @@ public class Accueil extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void clickButtonMesTrajets(View view)
-    {
-        Intent intent = new Intent(this, AffichageTrajets.class);
-        startActivity(intent);
+    public void clickButtonMesTrajets(View view) {
+        if (user.isEstConducteur()) {
+            Intent intent = new Intent(this, MesTrajetsBoutons.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, MesTrajets.class);
+            intent.putExtra("type", "passager");
+            startActivity(intent);
+        }
     }
 
 }

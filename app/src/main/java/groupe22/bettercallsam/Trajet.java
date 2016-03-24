@@ -1,8 +1,13 @@
 package groupe22.bettercallsam;
 
-import java.util.Date;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 /**
  * Created by goodhouse on 07/01/16.
@@ -86,7 +91,7 @@ public class Trajet {
         this.villeDepart = villeDepart;
     }
 
-    public String getConducteur(){
+    public String getConducteur() {
         return this.conducteur;
     }
 }

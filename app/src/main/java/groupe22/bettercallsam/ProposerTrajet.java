@@ -2,7 +2,6 @@ package groupe22.bettercallsam;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Application;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -26,8 +25,8 @@ import java.util.Calendar;
 import java.util.Random;
 
 public class ProposerTrajet extends AppCompatActivity implements View.OnClickListener {
-    static Activity thisAct = null;
 
+    static Activity thisAct = null;
     static EditText DateEdit;
     static EditText TempsEdit;
     static EditText nb;
@@ -116,17 +115,15 @@ public class ProposerTrajet extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    private void numberPickerDialog(){
+    private void numberPickerDialog() {
         NumberPicker np = new NumberPicker(this);
         np.setMaxValue(4);
         np.setMinValue(1);
 
         NumberPicker.OnValueChangeListener myValChangedListener =
-                new NumberPicker.OnValueChangeListener()
-                {
+                new NumberPicker.OnValueChangeListener() {
 
-                    public void onValueChange(NumberPicker picker, int oldVal, int newVal)
-                    {
+                    public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                         nb.setText("" + newVal);
                     }
                 };
@@ -176,14 +173,13 @@ public class ProposerTrajet extends AppCompatActivity implements View.OnClickLis
             int m = c.get(Calendar.MONTH);
             m++;
             int d = c.get(Calendar.DAY_OF_MONTH);
-            if(year <= y && month <= m && day < d){
+            if (year <= y && month <= m && day < d) {
 
-                Toast.makeText(thisAct , "La date ne peut pas être dans le passé", Toast.LENGTH_LONG).show();
+                Toast.makeText(thisAct, "La date ne peut pas être dans le passé", Toast.LENGTH_LONG).show();
 
-                    Toast.makeText(thisAct , "La date ne peut pas être dans le passé", Toast.LENGTH_LONG).show();
+                Toast.makeText(thisAct, "La date ne peut pas être dans le passé", Toast.LENGTH_LONG).show();
 
-            }
-            else {
+            } else {
                 DateEdit.setText(jour + "/" + mois + "/" + year);
             }
         }
@@ -191,19 +187,18 @@ public class ProposerTrajet extends AppCompatActivity implements View.OnClickLis
 
 
     public static class TimePickerFragment extends DialogFragment implements
-            TimePickerDialog.OnTimeSetListener
-    {
+            TimePickerDialog.OnTimeSetListener {
         @Override
-        public Dialog onCreateDialog (Bundle savedInstanceState){
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
             final Calendar c = Calendar.getInstance();
             int heure = c.get(Calendar.HOUR_OF_DAY);
             int minute = c.get(Calendar.MINUTE);
 
-            return new TimePickerDialog(getActivity(),this, heure, minute,
+            return new TimePickerDialog(getActivity(), this, heure, minute,
                     DateFormat.is24HourFormat(getActivity()));
         }
 
-        public void onTimeSet(TimePicker view, int heureDuJour, int minute){
+        public void onTimeSet(TimePicker view, int heureDuJour, int minute) {
             String heure = (heureDuJour < 10) ? "0" + heureDuJour : "" + heureDuJour;
             String min = (minute < 10) ? "0" + minute : "" + minute;
             TempsEdit.setText(heure + ":" + min);
