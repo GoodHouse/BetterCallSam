@@ -164,4 +164,13 @@
         android:layout_alignParentEnd="false"
         android:layout_toEndOf="@+id/textView17" />
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Détour"
+        android:id="@+id/checkBox"
+        android:checked="false"
+        android:layout_below="@+id/editTextNbPlaces"
+        android:layout_alignStart="@+id/textView10" />
+
 </RelativeLayout>

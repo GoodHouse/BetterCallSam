@@ -9,6 +9,8 @@
     android:paddingTop="0dp"
     tools:context="groupe22.bettercallsam.AffichageDetailsTrajet">
 
+
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="90dp"
@@ -17,16 +19,6 @@
         android:layout_alignParentTop="true"
         android:src="@drawable/icon" />
 
-    <TextView
-        android:id="@+id/textTrajet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="30dp"
-        android:text="Trajet"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="24dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -42,13 +34,114 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Détails d&apos;un trajet"
+        android:id="@+id/titre"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/boutonReserver"
+        android:layout_marginTop="27dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="190dp"
+        android:layout_height="79dp"
+        android:weightSum="1"
+        android:layout_below="@+id/titreArrivee"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="adresseArrivee"
+            android:textColor="#000000"
+            android:id="@+id/adresseArrivee"
+            android:layout_marginTop="30dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Départ"
+        android:id="@+id/titreDepart"
+        android:layout_marginTop="19dp"
+        android:layout_marginLeft="0dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Arrivée"
+        android:id="@+id/titreArrivee"
+        android:layout_marginRight="25dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignTop="@+id/linearLayout"
+        android:layout_toStartOf="@+id/date"
+        android:id="@+id/linearLayout2">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="178dp"
+            android:layout_height="79dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="villeArrivee"
+                android:textColor="#000000"
+                android:id="@+id/villeArrivee"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="5dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="a"
-        android:id="@+id/textViewDep"
+        android:text="eee"
+        android:id="@+id/date"
         android:textColor="#000000"
-        android:textSize="50px"
+        android:layout_below="@+id/linearLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="125dp"
-        />
+        android:layout_marginTop="33dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="aaaa"
+        android:id="@+id/villeDepart"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/titreDepart"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/linearLayout2"
+        android:layout_marginLeft="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="adresseDepart"
+        android:textColor="#000000"
+        android:id="@+id/adresseDepart"
+        android:layout_alignTop="@+id/villeDepart"
+        android:layout_alignStart="@+id/linearLayout" />
+
 
 </RelativeLayout>

@@ -91,9 +91,9 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
     private void numberPickerDialog() {
         final NumberPicker np = new NumberPicker(this);
         np.setMaxValue(4);
-        np.setMinValue(1);
+        np.setMinValue(0);
         np.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
-        np.setValue(1);
+        //np.setValue(1);
 
 
         NumberPicker.OnValueChangeListener myValChangedListener =
