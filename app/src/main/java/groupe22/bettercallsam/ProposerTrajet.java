@@ -25,7 +25,7 @@ import com.firebase.client.Firebase;
 import java.util.Calendar;
 import java.util.Random;
 
-public class ProposerTrajet extends AppCompatActivity{
+public class ProposerTrajet extends AppCompatActivity {
 
     static Activity thisAct = null;
     static EditText DateEdit;
@@ -144,7 +144,7 @@ public class ProposerTrajet extends AppCompatActivity{
 
     NumberPicker numberPickerPrix;
 
-    public void onClickPrix(View view){
+    public void onClickPrix(View view) {
         numberPickerPrix = new NumberPicker(this);
         numberPickerPrix.setMaxValue(5);
         numberPickerPrix.setMinValue(0);

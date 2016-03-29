@@ -10,7 +10,6 @@
     tools:context="groupe22.bettercallsam.AffichageDetailsTrajet">
 
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="90dp"

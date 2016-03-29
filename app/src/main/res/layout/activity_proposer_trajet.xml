@@ -162,7 +162,7 @@
         android:layout_alignEnd="@+id/textProposerTrajet"
         android:layout_alignParentEnd="false"
         android:layout_toEndOf="@+id/textView17"
-        android:onClick="onClickNbPlaces"/>
+        android:onClick="onClickNbPlaces" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -194,6 +194,6 @@
         android:focusable="false"
         android:layout_alignStart="@+id/editTextNbPlaces"
         android:layout_alignEnd="@+id/editTextNbPlaces"
-        android:onClick="onClickPrix"/>
+        android:onClick="onClickPrix" />
 
 </RelativeLayout>

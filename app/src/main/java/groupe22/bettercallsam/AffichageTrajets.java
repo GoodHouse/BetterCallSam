@@ -184,22 +184,22 @@ public class AffichageTrajets extends AppCompatActivity {
         int aProp = dateProposee.getYear();
         int aDem = dateDemandee.getYear();
 
-        if(aProp < aDem){
+        if (aProp < aDem) {
             aProp++;
             moisProp -= 12;
         }
-        if(aProp > aDem){
+        if (aProp > aDem) {
             aDem++;
             moisDem -= 12;
         }
         if (aProp == aDem) {
-            if(moisProp < moisDem){
-                switch (moisProp){
+            if (moisProp < moisDem) {
+                switch (moisProp) {
                     case 1:
                         jProp -= 31;
                         break;
                     case 2:
-                        jProp -= (aProp%4 == 0) ? 29 : 28;
+                        jProp -= (aProp % 4 == 0) ? 29 : 28;
                         break;
                     case 3:
                         jProp -= 31;
@@ -237,13 +237,13 @@ public class AffichageTrajets extends AppCompatActivity {
                 }
                 moisProp++;
             }
-            if(moisProp > moisDem){
-                switch (moisDem){
+            if (moisProp > moisDem) {
+                switch (moisDem) {
                     case 1:
                         jDem -= 31;
                         break;
                     case 2:
-                        jDem -= (aProp%4 == 0) ? 29 : 28;
+                        jDem -= (aProp % 4 == 0) ? 29 : 28;
                         break;
                     case 3:
                         jDem -= 31;
@@ -285,7 +285,6 @@ public class AffichageTrajets extends AppCompatActivity {
 
             }
         }
-
 
 
         if (hProp < hDem) {

@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class RechercherTrajet extends AppCompatActivity{
+public class RechercherTrajet extends AppCompatActivity {
 
     static Activity thisAct = null;
     static EditText DateEdit;

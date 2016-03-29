@@ -99,11 +99,11 @@ public class Trajet {
         return this.conducteur;
     }
 
-    public Boolean getDetour(){
+    public Boolean getDetour() {
         return detour;
     }
 
-    public void setDetour(Boolean detour){
+    public void setDetour(Boolean detour) {
         this.detour = detour;
     }
 }

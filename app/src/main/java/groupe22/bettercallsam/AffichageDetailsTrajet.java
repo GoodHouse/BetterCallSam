@@ -53,8 +53,8 @@ public class AffichageDetailsTrajet extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
                 trajetSelec = snapshot.child("trips").child(trajet).getValue(Trajet.class);
                 conducteur = snapshot.child("users").child(trajetSelec.getConducteur()).getValue(Utilisateur.class);
-                villeDepart.setText(trajetSelec.getVilleDepart()+", ");
-                villeArrivee.setText(trajetSelec.getVilleArrivee()+", ");
+                villeDepart.setText(trajetSelec.getVilleDepart() + ", ");
+                villeArrivee.setText(trajetSelec.getVilleArrivee() + ", ");
                 adresseDepart.setText(trajetSelec.getAdresseDepart());
                 adresseArrivee.setText(trajetSelec.getAdresseArrivee());
                 date.setText("Le " + trajetSelec.getDateDepart() + " à " + trajetSelec.getHeureDepart());
@@ -101,7 +101,7 @@ public class AffichageDetailsTrajet extends AppCompatActivity {
         }
     }
 
-    public void clickRetourAccueil(View view){
+    public void clickRetourAccueil(View view) {
         Intent intent = new Intent(this, Accueil.class);
         startActivity(intent);
     }
