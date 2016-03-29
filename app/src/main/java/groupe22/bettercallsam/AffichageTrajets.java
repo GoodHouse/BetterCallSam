@@ -186,14 +186,104 @@ public class AffichageTrajets extends AppCompatActivity {
 
         if(aProp < aDem){
             aProp++;
-            mProp -= 12;
+            moisProp -= 12;
         }
         if(aProp > aDem){
             aDem++;
-            mDem -= 12;
+            moisDem -= 12;
         }
         if (aProp == aDem) {
-            if(mProp < mDem)
+            if(moisProp < moisDem){
+                switch (moisProp){
+                    case 1:
+                        jProp -= 31;
+                        break;
+                    case 2:
+                        jProp -= (aProp%4 == 0) ? 29 : 28;
+                        break;
+                    case 3:
+                        jProp -= 31;
+                        break;
+                    case 4:
+                        jProp -= 30;
+                        break;
+                    case 5:
+                        jProp -= 31;
+                        break;
+                    case 6:
+                        jProp -= 30;
+                        break;
+                    case 7:
+                        jProp -= 31;
+                        break;
+                    case 8:
+                        jProp -= 31;
+                        break;
+                    case 9:
+                        jProp -= 30;
+                        break;
+                    case 10:
+                        jProp -= 31;
+                        break;
+                    case 11:
+                        jProp -= 30;
+                        break;
+                    case 12:
+                        jProp -= 31;
+                        break;
+                    default:
+                        jProp = 0;
+                        break;
+                }
+                moisProp++;
+            }
+            if(moisProp > moisDem){
+                switch (moisDem){
+                    case 1:
+                        jDem -= 31;
+                        break;
+                    case 2:
+                        jDem -= (aProp%4 == 0) ? 29 : 28;
+                        break;
+                    case 3:
+                        jDem -= 31;
+                        break;
+                    case 4:
+                        jDem -= 30;
+                        break;
+                    case 5:
+                        jDem -= 31;
+                        break;
+                    case 6:
+                        jDem -= 30;
+                        break;
+                    case 7:
+                        jDem -= 31;
+                        break;
+                    case 8:
+                        jDem -= 31;
+                        break;
+                    case 9:
+                        jDem -= 30;
+                        break;
+                    case 10:
+                        jDem -= 31;
+                        break;
+                    case 11:
+                        jDem -= 30;
+                        break;
+                    case 12:
+                        jDem -= 31;
+                        break;
+                    default:
+                        jDem = 0;
+                        break;
+                }
+                moisDem++;
+            }
+            if (moisProp == moisDem) {
+
+            }
         }
 
 
