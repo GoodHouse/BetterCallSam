@@ -20,12 +20,12 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class RechercherTrajet extends AppCompatActivity implements View.OnClickListener {
+public class RechercherTrajet extends AppCompatActivity {
 
     static Activity thisAct = null;
     static EditText DateEdit;
     static EditText TempsEdit;
-    static EditText nb;
+    static EditText editTextNbPlaces;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +54,7 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
             }
         });
 
-        nb = (EditText) findViewById(R.id.editTextNbPlaces);
-        nb.setOnClickListener(this);
+        editTextNbPlaces = (EditText) findViewById(R.id.editTextNbPlaces);
     }
 
 
@@ -81,35 +80,21 @@ public class RechercherTrajet extends AppCompatActivity implements View.OnClickL
         startActivity(intent);
     }
 
-    @Override
-    public void onClick(View v) {
+    NumberPicker numberPickerNbPlaces;
 
-        numberPickerDialog();
+    private void onClickNbPlaces() {
+        numberPickerNbPlaces = new NumberPicker(this);
+        numberPickerNbPlaces.setMaxValue(4);
+        numberPickerNbPlaces.setMinValue(1);
 
-    }
-
-    private void numberPickerDialog() {
-        final NumberPicker np = new NumberPicker(this);
-        np.setMaxValue(4);
-        np.setMinValue(0);
-        np.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
-        //np.setValue(1);
-
-
-        NumberPicker.OnValueChangeListener myValChangedListener =
-                new NumberPicker.OnValueChangeListener() {
-                    public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                        nb.setText("" + newVal);
-                    }
-                };
-        np.setOnValueChangedListener(myValChangedListener);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this).setView(np);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this).setView(numberPickerNbPlaces);
 
         builder.setTitle("Nombre de places");
 
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                editTextNbPlaces.setText(Integer.toString(numberPickerNbPlaces.getValue()));
             }
         });
 

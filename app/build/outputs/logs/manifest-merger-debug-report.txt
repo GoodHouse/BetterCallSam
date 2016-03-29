@@ -225,13 +225,21 @@ ADDED from /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/src/main/Andr
 	android:value
 		ADDED from /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/src/main/AndroidManifest.xml:54:13-68
 activity#groupe22.bettercallsam.MesTrajetsBoutons
-ADDED from /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/src/main/AndroidManifest.xml:56:9-57:20
+ADDED from /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/src/main/AndroidManifest.xml:56:9-64
 	android:name
 		ADDED from /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/src/main/AndroidManifest.xml:56:19-52
 activity#groupe22.bettercallsam.MesTrajets
-ADDED from /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/src/main/AndroidManifest.xml:58:9-59:20
+ADDED from /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/src/main/AndroidManifest.xml:57:9-57
 	android:name
-		ADDED from /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/src/main/AndroidManifest.xml:58:19-45
+		ADDED from /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/src/main/AndroidManifest.xml:57:19-45
+activity#groupe22.bettercallsam.AffichageReservationConducteur
+ADDED from /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/src/main/AndroidManifest.xml:58:9-77
+	android:name
+		ADDED from /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/src/main/AndroidManifest.xml:58:19-65
+activity#groupe22.bettercallsam.AffichageReservationPassager
+ADDED from /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/src/main/AndroidManifest.xml:59:9-75
+	android:name
+		ADDED from /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/src/main/AndroidManifest.xml:59:19-63
 uses-sdk
 INJECTED from /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.1.1] /home/goodhouse/AndroidStudioProjects/BetterCallSam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/AndroidManifest.xml:20:5-43

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.NumberPicker;
@@ -24,12 +25,13 @@ import com.firebase.client.Firebase;
 import java.util.Calendar;
 import java.util.Random;
 
-public class ProposerTrajet extends AppCompatActivity implements View.OnClickListener {
+public class ProposerTrajet extends AppCompatActivity {
 
     static Activity thisAct = null;
     static EditText DateEdit;
     static EditText TempsEdit;
-    static EditText nb;
+    static EditText editTextNbPlaces;
+    static EditText editTextPrix;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +55,9 @@ public class ProposerTrajet extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        nb = (EditText) findViewById(R.id.editTextNbPlaces);
-        nb.setOnClickListener(this);
+        editTextNbPlaces = (EditText) findViewById(R.id.editTextNbPlaces);
+
+        editTextPrix = (EditText) findViewById(R.id.editTextPrix);
 
     }
 
@@ -66,6 +69,8 @@ public class ProposerTrajet extends AppCompatActivity implements View.OnClickLis
         final EditText textDate = (EditText) findViewById(R.id.editTextDate);
         final EditText textTemps = (EditText) findViewById(R.id.editTextTemps);
         final EditText textNbPlaces = (EditText) findViewById(R.id.editTextNbPlaces);
+        final CheckBox checkboxDetour = (CheckBox) findViewById(R.id.checkboxDetour);
+        final EditText textPrix = (EditText) findViewById(R.id.editTextPrix);
 
         final Firebase myFireBase = new Firebase("https://bettercallsam.firebaseio.com/");
 
@@ -93,7 +98,9 @@ public class ProposerTrajet extends AppCompatActivity implements View.OnClickLis
                 textDate.getText().toString(),
                 textTemps.getText().toString(),
                 Integer.parseInt(textNbPlaces.getText().toString()),
-                authData.getUid().toString()
+                authData.getUid().toString(),
+                checkboxDetour.isChecked(),
+                3
         );
 
         Firebase trip = myFireBase.child("trips").child(Integer.toString(rdm.nextInt(Integer.MAX_VALUE)));
@@ -108,34 +115,21 @@ public class ProposerTrajet extends AppCompatActivity implements View.OnClickLis
         startActivity(intent);
     }
 
-    @Override
-    public void onClick(View v) {
+    NumberPicker numberPickerNbPlaces;
 
-        numberPickerDialog();
+    public void onClickNbPlaces(View view) {
+        numberPickerNbPlaces = new NumberPicker(this);
+        numberPickerNbPlaces.setMaxValue(4);
+        numberPickerNbPlaces.setMinValue(1);
 
-    }
-
-    private void numberPickerDialog() {
-        NumberPicker np = new NumberPicker(this);
-        np.setMaxValue(4);
-        np.setMinValue(1);
-
-        NumberPicker.OnValueChangeListener myValChangedListener =
-                new NumberPicker.OnValueChangeListener() {
-
-                    public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                        nb.setText("" + newVal);
-                    }
-                };
-        np.setOnValueChangedListener(myValChangedListener);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this).setView(np);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this).setView(numberPickerNbPlaces);
 
         builder.setTitle("Nombre de places");
 
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                editTextNbPlaces.setText(Integer.toString(numberPickerNbPlaces.getValue()));
             }
         });
 
@@ -148,6 +142,31 @@ public class ProposerTrajet extends AppCompatActivity implements View.OnClickLis
         builder.show();
     }
 
+    NumberPicker numberPickerPrix;
+
+    public void onClickPrix(View view) {
+        numberPickerPrix = new NumberPicker(this);
+        numberPickerPrix.setMaxValue(5);
+        numberPickerPrix.setMinValue(0);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this).setView(numberPickerPrix);
+
+        builder.setTitle("Prix");
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                editTextPrix.setText(Integer.toString(numberPickerPrix.getValue()));
+            }
+        });
+
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
+    }
 
     public static class DatePickerFragment extends DialogFragment implements
             DatePickerDialog.OnDateSetListener {

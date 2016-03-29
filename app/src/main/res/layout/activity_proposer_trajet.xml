@@ -102,11 +102,10 @@
         android:id="@+id/buttonProposer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="18dp"
         android:text="Proposer"
-        android:onClick="clickButtonProposer"/>
+        android:onClick="clickButtonProposer"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -162,15 +161,39 @@
         android:layout_below="@+id/editTextTemps"
         android:layout_alignEnd="@+id/textProposerTrajet"
         android:layout_alignParentEnd="false"
-        android:layout_toEndOf="@+id/textView17" />
+        android:layout_toEndOf="@+id/textView17"
+        android:onClick="onClickNbPlaces" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Détour"
-        android:id="@+id/checkBox"
+        android:id="@+id/checkboxDetour"
         android:checked="false"
         android:layout_below="@+id/editTextNbPlaces"
-        android:layout_alignStart="@+id/textView10" />
+        android:layout_alignStart="@+id/textView17" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Indication de prix : "
+        android:id="@+id/textViewPrix"
+        android:layout_below="@+id/checkboxDetour"
+        android:layout_alignStart="@+id/checkboxDetour"
+        android:layout_above="@+id/buttonProposer" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextPrix"
+        android:inputType="number"
+        android:layout_below="@+id/editTextNbPlaces"
+        android:layout_marginTop="14dp"
+        android:editable="false"
+        android:focusable="false"
+        android:layout_alignStart="@+id/editTextNbPlaces"
+        android:layout_alignEnd="@+id/editTextNbPlaces"
+        android:onClick="onClickPrix" />
 
 </RelativeLayout>
