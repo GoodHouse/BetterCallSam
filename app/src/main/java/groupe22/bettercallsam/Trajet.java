@@ -21,13 +21,15 @@ public class Trajet {
     private String heureDepart;
     private int nombrePlaceDisponibles;
     private String conducteur;
+    private Boolean detour;
+    private int prix;
 
 
     public Trajet() {
 
     }
 
-    public Trajet(String villeDepart, String adresseDepart, String villeArrivee, String adresseArrivee, String dateDepart, String heureDepart, int nombrePlaceDisponibles, String conducteur) {
+    public Trajet(String villeDepart, String adresseDepart, String villeArrivee, String adresseArrivee, String dateDepart, String heureDepart, int nombrePlaceDisponibles, String conducteur, Boolean detour, int prix) {
         this.villeDepart = villeDepart;
         this.adresseDepart = adresseDepart;
         this.villeArrivee = villeArrivee;
@@ -36,6 +38,8 @@ public class Trajet {
         this.heureDepart = heureDepart;
         this.nombrePlaceDisponibles = nombrePlaceDisponibles;
         this.conducteur = conducteur;
+        this.detour = detour;
+        this.prix = prix;
     }
 
     public String getAdresseDepart() {
@@ -93,5 +97,13 @@ public class Trajet {
 
     public String getConducteur() {
         return this.conducteur;
+    }
+
+    public Boolean getDetour(){
+        return detour;
+    }
+
+    public void setDetour(Boolean detour){
+        this.detour = detour;
     }
 }

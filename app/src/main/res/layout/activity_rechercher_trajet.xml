@@ -162,6 +162,7 @@
         android:focusable="false"
         android:layout_below="@+id/editTextTemps"
         android:layout_alignEnd="@+id/editTextTemps"
-        android:layout_toEndOf="@+id/textView15" />
+        android:layout_toEndOf="@+id/textView15"
+        android:onClick="onClickNbPlaces"/>
 
 </RelativeLayout>

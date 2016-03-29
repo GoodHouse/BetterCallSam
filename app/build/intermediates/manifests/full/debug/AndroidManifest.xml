@@ -71,10 +71,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD_NaVV0-pSDDxjE3YPlbmIq1-obcOlah0" />
 
-        <activity android:name="groupe22.bettercallsam.MesTrajetsBoutons" >
-        </activity>
-        <activity android:name="groupe22.bettercallsam.MesTrajets" >
-        </activity>
+        <activity android:name="groupe22.bettercallsam.MesTrajetsBoutons" />
+        <activity android:name="groupe22.bettercallsam.MesTrajets" />
+        <activity android:name="groupe22.bettercallsam.AffichageReservationConducteur" />
+        <activity android:name="groupe22.bettercallsam.AffichageReservationPassager" />
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

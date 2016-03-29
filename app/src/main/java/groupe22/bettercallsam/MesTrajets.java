@@ -119,8 +119,6 @@ public class MesTrajets extends AppCompatActivity {
                     }
 
 
-
-
                    /* if (compt == 0) {
                         final String erreur = "Il n'y a pas de trajet";
                         listTrajet.add(erreur);
@@ -143,7 +141,6 @@ public class MesTrajets extends AppCompatActivity {
                             startActivity(intent);
                         }
                     });
-
                 }
 
                 @Override
@@ -155,51 +152,5 @@ public class MesTrajets extends AppCompatActivity {
             //S'il n'est pas connecté, on le redirige sur l'activité principale
             startActivity(new Intent(this, MainActivity.class)
             );
-
     }
-
-    public Boolean comparerAdresses(String pointProp, String pointDem) {
-        Geocoder gc = new Geocoder(getApplicationContext());
-
-        try {
-            List<Address> adProp = gc.getFromLocationName(pointProp, 1);
-            List<Address> adDEm = gc.getFromLocationName(pointDem, 1);
-            Address addressProp = adProp.get(0);
-            Address addressDem = adDEm.get(0);
-            double latProp = addressProp.getLatitude();
-            double longProp = addressProp.getLongitude();
-            double latDem = addressDem.getLatitude();
-            double longDem = addressDem.getLongitude();
-            return latProp >= latDem - 0.004 && latProp <= latDem + 0.004 && longProp >= longDem - 0.004 && longProp <= longDem + 0.004;
-        } catch (IOException e) {
-            Intent intent = new Intent(this, RechercherTrajet.class);
-            Toast.makeText(this, "Merci de vérifier les adresses", Toast.LENGTH_LONG).show();
-            startActivity(intent);
-        }
-        return false;
-    }
-
-    public Boolean comparerHoraires(String dateDem, String dateProp, Date heureDem, Date heureProp) {
-        int hProp = heureProp.getHours();
-        int hDem = heureDem.getHours();
-        int mProp = heureProp.getMinutes();
-        int mDem = heureDem.getMinutes();
-        if (dateDem.equals(dateProp)) {
-            if (hProp < hDem) {
-                hProp++;
-                mProp -= 60;
-            }
-            if (hProp > hDem) {
-                hDem++;
-                mDem -= 60;
-            }
-            if (hProp == hDem) {
-                if (mProp - mDem <= 30 && mProp - mDem >= -30) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
 }

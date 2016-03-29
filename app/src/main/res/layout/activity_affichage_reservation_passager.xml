@@ -9,4 +9,74 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="groupe22.bettercallsam.AffichageReservationPassager">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="90dp"
+        android:layout_height="94dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/icon" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Annuler réservation"
+        android:id="@+id/boutonReserver"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Détails d'un trajet"
+        android:id="@+id/titre"
+        android:layout_marginBottom="29dp"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_marginStart="42dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="190dp"
+        android:layout_height="79dp"
+        android:weightSum="1"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/linearLayout"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text=""
+            android:textColor="#000000"
+            android:id="@+id/adresseArrivee"
+            android:layout_marginTop="30dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=""
+        android:id="@+id/date"
+        android:textColor="#000000"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView3"
+        android:layout_weight="1"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView"
+        android:layout_above="@+id/boutonReserver" />
+
+
 </RelativeLayout>

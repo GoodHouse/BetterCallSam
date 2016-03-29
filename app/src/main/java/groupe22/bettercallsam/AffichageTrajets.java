@@ -27,7 +27,6 @@ import java.util.List;
 
 public class AffichageTrajets extends AppCompatActivity {
 
-    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
     int compt = 0;
 
     @Override
@@ -38,15 +37,8 @@ public class AffichageTrajets extends AppCompatActivity {
         final String pointDepDemande = intent.getStringExtra("pointDep");
         final String pointArrDemande = intent.getStringExtra("pointArr");
         final String dateDem = intent.getStringExtra("dateDep");
-        final String heure = intent.getStringExtra("heure");
+        final String heureDem = intent.getStringExtra("heure");
         final int nbPlaces = intent.getIntExtra("nbPlaces", 1);
-
-        Date dep = null;
-        try {
-            dep = sdf.parse(heure);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
         final ListView listView = (ListView) findViewById(R.id.listView);
         final ArrayList<HashMap<String, String>> listTrajet = new ArrayList<>();
@@ -56,7 +48,6 @@ public class AffichageTrajets extends AppCompatActivity {
 
         final AuthData authData = myFireBase.getAuth();
         if (authData != null) {
-            final Date heureDem = dep;
 
             myFireBase.addValueEventListener(new ValueEventListener() {
                 //S'il est connecté, on récupère ses informations
@@ -69,22 +60,17 @@ public class AffichageTrajets extends AppCompatActivity {
                         String pointDepPropose = trajet.getAdresseDepart() + ", " + trajet.getVilleDepart();
                         String pointArrPropose = trajet.getAdresseArrivee() + ", " + trajet.getVilleArrivee();
                         String dateProp = trajet.getDateDepart();
-                        String heureDepart = trajet.getHeureDepart();
+                        String heureProp = trajet.getHeureDepart();
                         int places = trajet.getNombrePlaceDisponibles();
+                        Boolean detour = trajet.getDetour();
 
-
-                        Date heureProp = null;
-                        try {
-                            heureProp = sdf.parse(heureDepart);
-                        } catch (ParseException e) {
-                            e.printStackTrace();
-                        }
+                        int multiplicateur = detour ? 10 : 1;
 
                         if (
                                 nbPlaces <= places &&
                                         comparerHoraires(dateDem, dateProp, heureDem, heureProp) &&
-                                        comparerAdresses(pointDepDemande, pointDepPropose) &&
-                                        comparerAdresses(pointArrDemande, pointArrPropose)
+                                        comparerAdresses(pointDepDemande, pointDepPropose, multiplicateur) &&
+                                        comparerAdresses(pointArrDemande, pointArrPropose, multiplicateur)
                                 ) {
                             compt++;
                             String villeArrivee = trajet.getVilleArrivee().toString();
@@ -129,6 +115,8 @@ public class AffichageTrajets extends AppCompatActivity {
                             final Intent intent = new Intent(AffichageTrajets.this, AffichageDetailsTrajet.class);
                             intent.putExtra("trajet", map.get("idTrajet"));
                             intent.putExtra("nbPlacesReservees", nbPlaces);
+                            intent.putExtra("pointDepDemande", pointDepDemande);
+                            intent.putExtra("pointArrDemande", pointArrDemande);
                             startActivity(intent);
                         }
                     });
@@ -147,7 +135,7 @@ public class AffichageTrajets extends AppCompatActivity {
 
     }
 
-    public Boolean comparerAdresses(String pointProp, String pointDem) {
+    public Boolean comparerAdresses(String pointProp, String pointDem, int multiplicateur) {
         Geocoder gc = new Geocoder(getApplicationContext());
 
         try {
@@ -159,7 +147,7 @@ public class AffichageTrajets extends AppCompatActivity {
             double longProp = addressProp.getLongitude();
             double latDem = addressDem.getLatitude();
             double longDem = addressDem.getLongitude();
-            return latProp >= latDem - 0.004 && latProp <= latDem + 0.004 && longProp >= longDem - 0.004 && longProp <= longDem + 0.004;
+            return latProp >= latDem - (0.004 * multiplicateur) && latProp <= latDem + (0.004 * multiplicateur) && longProp >= longDem - (0.004 * multiplicateur) && longProp <= longDem + (0.004 * multiplicateur);
         } catch (IOException e) {
             Intent intent = new Intent(this, RechercherTrajet.class);
             Toast.makeText(this, "Merci de vérifier les adresses", Toast.LENGTH_LONG).show();
@@ -168,26 +156,63 @@ public class AffichageTrajets extends AppCompatActivity {
         return false;
     }
 
-    public Boolean comparerHoraires(String dateDem, String dateProp, Date heureDem, Date heureProp) {
-        int hProp = heureProp.getHours();
-        int hDem = heureDem.getHours();
-        int mProp = heureProp.getMinutes();
-        int mDem = heureDem.getMinutes();
-        if (dateDem.equals(dateProp)) {
-            if (hProp < hDem) {
-                hProp++;
-                mProp -= 60;
-            }
-            if (hProp > hDem) {
-                hDem++;
-                mDem -= 60;
-            }
-            if (hProp == hDem) {
-                if (mProp - mDem <= 30 && mProp - mDem >= -30) {
-                    return true;
-                }
+    public Boolean comparerHoraires(String dateDem, String dateProp, String heureDem, String heureProp) {
+        SimpleDateFormat heureFormat = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date heureDemandee = null;
+        Date heureProposee = null;
+        Date dateProposee = null;
+        Date dateDemandee = null;
+        try {
+            heureDemandee = heureFormat.parse(heureDem);
+            heureProposee = heureFormat.parse(heureProp);
+            dateDemandee = dateFormat.parse(dateDem);
+            dateProposee = dateFormat.parse(dateProp);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        int hProp = heureProposee.getHours();
+        int hDem = heureDemandee.getHours();
+        int mProp = heureProposee.getMinutes();
+        int mDem = heureDemandee.getMinutes();
+
+        int jProp = dateProposee.getDay();
+        int jDem = dateDemandee.getDay();
+        int moisProp = dateProposee.getMonth();
+        int moisDem = dateDemandee.getMonth();
+        int aProp = dateProposee.getYear();
+        int aDem = dateDemandee.getYear();
+
+        if(aProp < aDem){
+            aProp++;
+            mProp -= 12;
+        }
+        if(aProp > aDem){
+            aDem++;
+            mDem -= 12;
+        }
+        if (aProp == aDem) {
+            if(mProp < mDem)
+        }
+
+
+
+        if (hProp < hDem) {
+            hProp++;
+            mProp -= 60;
+        }
+        if (hProp > hDem) {
+            hDem++;
+            mDem -= 60;
+        }
+        if (hProp == hDem) {
+            if (mProp - mDem <= 30 && mProp - mDem >= -30) {
+                return true;
             }
         }
+
+
         return false;
     }
 
